@@ -48,7 +48,8 @@ extension Array{
 Et que puis-je attendre d’une fonction forEach ?
 
 + de pouvoir lui passer une fonction qui acceptera un élément du tableau en paramètre, et qui ne renverra rien.
-On peut noter `(Element)->Void` le type de la fonction attendue ( attend un paramètre *Element* générique et renvoie Void ).
+On peut noter `(Element)->Void` le type de la fonction attendue ( attend un paramètre *Element* [générique](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Generics.html)
+ et renvoie Void ).
 
 ```swift
 extension Array{
@@ -97,7 +98,7 @@ names.forEach( {(n:String) in
     print(n)
 })
 ```
-De même, le paramètre étant déclaré “de type générique” (T),
+De même, le paramètre étant déclaré “de type [générique](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Generics.html)” (Element),
 pas besoin de le préciser pour l’appel.
 
 ```swift
