@@ -9,14 +9,23 @@
 title: RXLabz.logs
 email: erick@rxlabz.com
 description: > # this means to ignore newlines until "baseurl:"
-  Notes et expérimentations - Swift, Angular2, React, JS, ...
+  Notes et autres bidouilles - Swift, Angular2, React, JS, ...
 baseurl: "" # the subpath of your site, e.g. /blog
-# url: "http://rxlabz.com" # the base hostname & protocol for your site
+url: "http://rxlabz.github.io" # the base hostname & protocol for your site
 twitter_username: rxlabz
 github_username:  rxlabz
 
 # Build settings
-markdown: redcarpet
-redcarpet:
+markdown: kramdown
+kramdown:
   input: GFM
 highlighter: pygments
+
+#options
+comments: true
+provider : disqus
+disqus :
+    short_name : rxlabzlogs
+
+gems:
+  - jemoji
