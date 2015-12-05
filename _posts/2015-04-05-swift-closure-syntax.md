@@ -75,6 +75,7 @@ extension Array{
 Et voilà ! Voyons comment l’utiliser. Pour commencer la version bavarde :
 
 ```swift
+let names = ["Luke", "Yoda", "Leila"]
 func log(item:String)->Void{
     print(item)
 }
