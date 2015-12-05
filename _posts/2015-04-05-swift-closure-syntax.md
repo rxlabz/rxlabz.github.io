@@ -6,7 +6,7 @@ categories: swift
 ---
 Qui n'a jamais rêvé d'ajouter une petite fonction forEach aux tableaux Swift ?
 
-> “Pourquoi faire ? j'aime bien les boucles for”
+> “Pourquoi faire ? j'aime bien les boucles...”
 
 demanderont certains…
 

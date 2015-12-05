@@ -11,7 +11,7 @@ Ce que je retiens surtout, c'est qu'Apple s'est chargé du portage linux ( compi
 
 Comme beaucoup je me réjouis de l'ouverture et de son accueil. Swift est un langage moderne et puissant,
 qui m'a fait découvrir des concepts très intéressants ( extension de protocol, optionnels, ... ).
-J'ai grand plaisir à l'apprendre et à le pratiquer, et je sais maintenant que je pourrais bientôt l'exploité pour d'autres projets que des applis AppStore \o/.
+J'ai grand plaisir à l'apprendre et à le pratiquer, et je sais maintenant que je pourrais bientôt l'exploiter pour d'autres projets que des applis AppStore \o/.
 
 > Ouai mais y en a déjà plein des (bons) langages !
 
