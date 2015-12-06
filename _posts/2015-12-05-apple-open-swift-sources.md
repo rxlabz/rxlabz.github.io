@@ -13,6 +13,7 @@ Comme beaucoup je me réjouis de l'ouverture et de son accueil. Swift est un lan
 qui m'a fait découvrir des concepts très intéressants ( extension de protocol, optionnels, ... ).
 J'ai grand plaisir à l'apprendre et à le pratiquer, et je sais maintenant que je pourrais bientôt l'exploiter pour d'autres projets que des applis AppStore \o/.
 
+
 > Ouai mais y en a déjà plein des (bons) langages !
 
 Bien sûr, et y en aura encore pleins d'autres... tant mieux !
@@ -20,8 +21,7 @@ Bien sûr, et y en aura encore pleins d'autres... tant mieux !
 Là, après à peine 2 jours :
 
 + les [1ers serveurs HTTP Swift](https://github.com/huytd/swift-http){:target="_blank"} apparaissent
-+ [IBM a sorti](https://developer.ibm.com/swift/2015/12/03/introducing-the-ibm-swift-sandbox/){:target="_blank"} un petit [bac à sable en ligne](http://swiftlang.ng.bluemix.net/), qui permet d'essayer Swift depuis un navigateur,... **depuis n'importe quel navigateur !**
-Ils [sont fans](https://developer.ibm.com/swift/2015/12/03/why-im-excited-about-swift-and-you-should-be-too/), et [explique pourquoi](https://developer.ibm.com/swift/2015/12/03/swift-moves-to-open-source-a-development-perspective/) , !
++ [IBM a sorti](https://developer.ibm.com/swift/2015/12/03/introducing-the-ibm-swift-sandbox/){:target="_blank"} un petit [bac à sable en ligne](http://swiftlang.ng.bluemix.net/), qui permet d'essayer Swift depuis un navigateur,... **depuis n'importe quel navigateur !** Ils [sont fans](https://developer.ibm.com/swift/2015/12/03/why-im-excited-about-swift-and-you-should-be-too/), et [expliquent pourquoi](https://developer.ibm.com/swift/2015/12/03/swift-moves-to-open-source-a-development-perspective/) , !
 + Swift est déjà, sur Github, le [langage dont les sources ont le + de :star:](https://github.com/showcases/programming-languages){:target="_blank"}.
 
 Tout ça me fait penser que plein d'autres trucs cools en découleront sous peu et dans les années à venir.
