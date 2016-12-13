@@ -9,6 +9,10 @@ Petite note sur l'utilisation des templates dans Intellij, WebStorm, PHPStorm...
 
 ## Templates de fichiers
 
+Les File templates permettent de définir des fichiers types.
+
+![ajout de file template]({{"/img/add_file_tpl.jpg" | prepend:site.baseurl }})
+
 Les variables de templates ${NOM_VARIABLE} ( ou $NOM_VARIABLE ) permettent de définir des placeholders "dynamiques",
 que l'on pourra renseigner au moment de la création du fichier.
 
@@ -45,7 +49,11 @@ class ${FILENAME}{
 
 ## Live templates
 
+
 Les live templates permettent d'insérer des fragments de codes paramètrables à l'aide de raccourci textuel.
+
+![ajout de live template]({{"/img/add_live_tpl.jpg" | prepend:site.baseurl }})
+
 Par exemple un raccourci _lg_ qui afficherait automatiquement _console.log("")_ et qui placerait le curseur entre les guillemets après insertion.
 
 ```javascript
