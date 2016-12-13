@@ -47,10 +47,9 @@ class ${FILENAME}{
 }
 ```
 
-## Live templates
+## Live templates aka snippets
 
-
-Les live templates permettent d'insérer des fragments de codes paramètrables à l'aide de raccourci textuel.
+Les live templates permettent d'insérer des fragments de codes paramètrables à l'aide de raccourcis textuels.
 
 ![ajout de live template]({{"/img/add_live_tpl.jpg" | prepend:site.baseurl }})
 
