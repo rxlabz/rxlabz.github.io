@@ -57,9 +57,12 @@ Il est également possible de définir ses propres variables, renseignées dans 
 console.log('$NOM_VARIABLES$');
 $END$
 ```
+
 ### Injecter un live template autour d'une sélection
+
 Ce template permet d'injecter une boucle for...of autour de la sélection active.
-```
+
+```javascript
 for( let p of $SELECTION$ ){
   $END$
 }
@@ -74,3 +77,7 @@ Il est possible d'utiliser quelques fonctions dans les _live templates_ :
 - capitalize()
 - clipboard()
 - ... cf [doc](https://www.jetbrains.com/help/idea/2016.1/live-template-variables.html)
+
+```
+
+``
