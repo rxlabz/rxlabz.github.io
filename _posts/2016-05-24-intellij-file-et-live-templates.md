@@ -82,4 +82,4 @@ Il est possible d'utiliser quelques fonctions dans les _live templates_ :
 print('$METHOD$... $END$');
 ```
 
-![tpl methods]({{ "img/intellij_tpl_methods.jpg" | prepend: site.baseurl }})
+![tpl methods]({{ "/img/intellij_tpl_methods.jpg" | prepend: site.baseurl }})
