@@ -12,9 +12,9 @@ Les variables de templates ${NOM_VARIABLE} ( ou $NOM_VARIABLE )permettent de dé
 
 ### Syntaxe variables
 
-```
+```javascript
 class ${NOM_VARIABLE}{
-$END$
+    $END$
 }
 ```
 
@@ -30,12 +30,12 @@ Une option permet d'activer les live templates au sein du file templates, de man
 
 Dans cet exemple, on définit un placeholder pour inclure une doc pour la classe crée, il sera bien plus pratique de le remplir dans l'éditeur, plutôt que dans une popup.
 
-```
+```javascript
 /**
 * #[[ DOC ]]#
 */
 class ${FILENAME}{
-$END$
+    $END$
 }
 ```
 
@@ -43,17 +43,17 @@ $END$
 
 Les live templates permettent d'insérer des fragments de codes paramètrables à l'aide de raccourci textuel. Par exemple un raccourci _lg_ qui afficherait automatiquement _console.log("")_ et qui placerait le curseur entre les guillemets après insertion.
 
-```
+```javascript
 console.log("$NOM_VARIABLES$");
 ```
 
 Intellij intégre deux variables prédéfinies :
 - $END$ : permet d'indiquer où le curseur doit être placé après insertion du template et saisies de ses variables.
--
+- *SELECTION$ permet de faire référence au code sélectionné au moment de l'insertion du live-template.
 
 Il est également possible de définir ses propres variables, renseignées dans la continuité de l'insertion du live template.
 
-```
+```javascript
 console.log('$NOM_VARIABLES$');
 $END$
 ```
