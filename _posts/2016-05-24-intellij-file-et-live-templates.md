@@ -95,8 +95,15 @@ Il est possible d'utiliser quelques fonctions dans les _live templates_ :
 print('$METHOD$... $END$');
 ```
 
-ici la variable `$METHOD$` sera remplacer à l'insertion par le nom de la méthode dans laquelle le code est inséré.
+ici la variable `$METHOD$` sera remplacée par le nom de la méthode dans laquelle le code est inséré.
 
 ![tpl methods]({{ "/img/intellij_tpl_methods.jpg" | prepend: site.baseurl }})
 
-Et voilà comment gagner 7mn30 par an !!!
+
+### Créer rapidement un live template à partir de code existant
+
+- sélectionner le code de base du futur live template
+- appuyez 2 fois /shift (recherche "universelle") ou Cmd+Shift+A (recherche d'actions ) et saisissez Live te... » "Save as Live template"
+- complétez , paramètrez...
+
+:tada: Et voilà comment gagner 7mn30 par an !!!
