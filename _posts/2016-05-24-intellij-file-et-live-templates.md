@@ -60,6 +60,7 @@ console.log("$NOM_VARIABLES$");
 ```
 
 Intellij intégre deux variables prédéfinies :
+
 - $END$ : permet d'indiquer où le curseur doit être placé après insertion du template et saisies de ses variables.
 - *SELECTION$ permet de faire référence au code sélectionné au moment de l'insertion du live-template.
 
