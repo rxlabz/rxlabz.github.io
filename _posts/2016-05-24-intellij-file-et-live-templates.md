@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Intellij & autres IDE jetbrains... : File et live templates"
+title:  "Intellij & autres IDE Jetbrains... : File et live templates"
 date:   2016-03-28 13:29:08 +0100
 categories: tools
 ---
