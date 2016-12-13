@@ -10,14 +10,16 @@ Petite note sur l'utilisation des templates dans Intellij, WebStorm, PHPStorm...
 
 Les variables de templates ${NOM_VARIABLE} ( ou $NOM_VARIABLE )permettent de définir des placeholders "dynamiques", que l'on pourra renseigner au moment de la création du fichier.
 
-**Syntaxe variables**
+### Syntaxe variables
+
 ```
 class ${NOM_VARIABLE}{
 $END$
 }
 ```
 
-**Variables pré-définies**
+### Variables pré-définies
+
 - ${NAME}
 - ${PACKAGE_NAME}
 - ... cf [doc](https://www.jetbrains.com/help/idea/2016.1/file-template-variables.html)
