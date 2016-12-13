@@ -8,7 +8,8 @@ Petite note sur l'utilisation des templates dans Intellij, WebStorm, PHPStorm...
 
 ## Templates de fichiers
 
-Les variables de templates ${NOM_VARIABLE} ( ou $NOM_VARIABLE )permettent de définir des placeholders "dynamiques", que l'on pourra renseigner au moment de la création du fichier.
+Les variables de templates ${NOM_VARIABLE} ( ou $NOM_VARIABLE ) permettent de définir des placeholders "dynamiques",
+que l'on pourra renseigner au moment de la création du fichier.
 
 ### Syntaxe variables
 
@@ -26,7 +27,7 @@ class ${NOM_VARIABLE}{
 
 Les valeurs des variables de _file templates_ sont saisies via la popup de création du fichier.
 
-Une option permet d'activer les live templates au sein du file templates, de manière à éditer les variables injectées "dans leur contexte".
+Une option permet d'activer les live templates au sein du file template, de manière à éditer les variables injectées "dans leur contexte".
 
 Dans cet exemple, on définit un placeholder pour inclure une doc pour la classe crée, il sera bien plus pratique de le remplir dans l'éditeur, plutôt que dans une popup.
 
@@ -41,7 +42,8 @@ class ${FILENAME}{
 
 ## Live templates
 
-Les live templates permettent d'insérer des fragments de codes paramètrables à l'aide de raccourci textuel. Par exemple un raccourci _lg_ qui afficherait automatiquement _console.log("")_ et qui placerait le curseur entre les guillemets après insertion.
+Les live templates permettent d'insérer des fragments de codes paramètrables à l'aide de raccourci textuel.
+Par exemple un raccourci _lg_ qui afficherait automatiquement _console.log("")_ et qui placerait le curseur entre les guillemets après insertion.
 
 ```javascript
 console.log("$NOM_VARIABLES$");
