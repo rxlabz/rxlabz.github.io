@@ -78,6 +78,8 @@ Il est possible d'utiliser quelques fonctions dans les _live templates_ :
 - clipboard()
 - ... cf [doc](https://www.jetbrains.com/help/idea/2016.1/live-template-variables.html)
 
+```dart
+print('$METHOD$... $END$');
 ```
 
-``
+![tpl methods]({{ "img/intellij_tpl_methods.jpg" | prepend: site.baseurl }})
