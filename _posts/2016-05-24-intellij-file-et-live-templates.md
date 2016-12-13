@@ -1,9 +1,10 @@
 ---
 layout: post
-title:  "Intellij : File et live templates"
+title:  "Intellij & autres IDE jetbrains... : File et live templates"
 date:   2016-03-28 13:29:08 +0100
 categories: tools
 ---
+
 Petite note sur l'utilisation des templates dans Intellij, WebStorm, PHPStorm...
 
 ## Templates de fichiers
@@ -18,6 +19,8 @@ class ${NOM_VARIABLE}{
     $END$
 }
 ```
+
+Il est à noter que si un template contient plusieurs placeholders, Tab permet de "passer" au placeholder suivant.
 
 ### Variables pré-définies
 
@@ -84,4 +87,8 @@ Il est possible d'utiliser quelques fonctions dans les _live templates_ :
 print('$METHOD$... $END$');
 ```
 
+ici la variable `$METHOD$` sera remplacer à l'insertion par le nom de la méthode dans laquelle le code est inséré.
+
 ![tpl methods]({{ "/img/intellij_tpl_methods.jpg" | prepend: site.baseurl }})
+
+Et voilà comment gagner 7mn30 par an !!!
