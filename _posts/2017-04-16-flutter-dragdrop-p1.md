@@ -5,22 +5,28 @@ date:   2017-04-16 00:00:00 +0100
 categories: dart, flutter
 ---
 
-Flutter propose plusieurs solutions pour gérer le drag'n'drop.
+Flutter propose plusieurs options pour gérer des interactions de drag'n'drop.
 
-Dans ce 1er article nous nous intéressons à la plus simple :  
+Nous nous intéressons ici à la plus simple : à l'aide des Draggable et DragTarget. 
 
-## Draggable
+Flutter privilégie très souvent la composition à l'héritage. 
+De nombreuses fonctionnalités du framework fonctionnent par superpositions de couches de fonctionnalités. 
+C'est le cas pour les composants de Drag'n'drop. 
 
-Le composant draggable permet d'encapsuler un widget et de le rendre... draggable.
+### Draggable : élement déplacable
 
-Un Dragable doit évidement contenir un élément enfant *child* et définir un "avatar de déplacement" *feedback*.
+Le composant **Draggable** permet d'encapsuler un widget et de le rendre... draggable.
+
+Un *Draggable* doit évidement contenir un élément enfant *child* et définir un "avatar de déplacement" *feedback*.
 Le feedback représente le widget pendant qu'il est déplacé.
  
 ```dart
 var draggable = new Draggable(
   feedback:new Container(wid),
-  child:new Container(width:100.0, height:100.0, color:Colors.cyan,
-  child:new Center(child:new Text('Madrid')))
+  child:new Container(
+    width:100.0, height:100.0, color:Colors.cyan,
+    child:new Center(child:new Text('Madrid')
+   ))
 );
 ```
 
@@ -69,16 +75,19 @@ Widget build(BuildContext context) {
 }
 ```
 
-## DragTarget
+En général, une interaction de drag'n'drop n'a pas pour but de déplacer un composant graphique, mais plutôt une donnée qui lui est associée.
+Pour définir les données à associer à un *Draggable*, on utilise sa propriété **data**.
 
-Voyons maintenant comment complexifier un peu ce 1er proto, en définissant une "zone de dépôt". 
+### DragTarget : zone de dépô
 
-Pour cela il est possible d'utiliser un widget *DragTarget*.
+Voyons maintenant comment définir une "zone de dépôt".
 
-Cette container va nous permettre de définir trois callbacks pour gérer le dépot :
+Pour définir une zone de dépot, on peut utiliser un widget **DragTarget**. 
+
+Ce container va nous permettre de définir les callbacks gérant les opérations de survol et de dépot :
 
 - un *builder* : ce callback recevra le context, la liste des élements en cours de survol de la zone, et les éléments rejetés.
-- *onWillAccept* : permet de déterminer les conditions d'acceptation du dépot
+- *onWillAccept* : permet de déterminer les conditions d'acceptation du dépot.
 - *onAccept* : permet de définir une "réaction" au dépot 
 
 ```dart
@@ -104,17 +113,19 @@ new DragTarget(
 }))
 ```
 
-Dans cet exemple, on accepte qu'un seul dépot : une fois que la zone a une *selection*, les dépots sont refusés.
+Dans cet exemple, on accepte un seul dépot par zone : une fois qu'une objet est déposé,
+la zone récupère la donnée de l'objet déposé, et aux prochains survols, les dépots sont refusés.
+
+Dans [Dropcity](https://github.com/rxlabz/flutter_dropcity/blob/master/lib/main.dart), le second exemple, les élements ne peuvent être déplacés que sur les cibles, et peuvent être "ressorties" après dépot.
+
+![dropcity]({{"/img/dropcity1.png" | prepend:site.baseurl }})
 
 ## Examples
 
 - [code complet de cet exemple](https://github.com/rxlabz/flutter_dropcity/blob/master/lib/drag_drop_basics.dart)
 - [petit jeu de capitale](https://github.com/rxlabz/flutter_dropcity/blob/master/lib/main.dart)
 
-![dropcity]({{"/img/dropcity1.png" | prepend:site.baseurl }})
-
 **repo officiel**
 
 - [basics](https://github.com/flutter/flutter/blob/master/dev/manual_tests/drag_and_drop.dart)  
 - [advanced](https://github.com/flutter/flutter/blob/master/dev/manual_tests/material_arc.dart)
-arc.dart
