@@ -7,13 +7,13 @@ categories: dart, flutter
 
 Flutter propose plusieurs options pour gérer des interactions de drag'n'drop.
 
-Nous nous intéressons ici à la plus simple : à l'aide des Draggable et DragTarget. 
+Nous nous intéressons ici à la plus simple : à l'aide des [Draggable<T>](https://docs.flutter.io/flutter/widgets/Draggable-class.html) et [DragTarget<T>](https://docs.flutter.io/flutter/widgets/DragTarget-class.html). 
 
 Flutter privilégie très souvent la composition à l'héritage. 
 De nombreuses fonctionnalités du framework fonctionnent par superpositions de couches de fonctionnalités. 
 C'est le cas pour les composants de Drag'n'drop. 
 
-### Draggable : élement déplacable
+### Draggable<T> : élement déplacable
 
 Le composant **Draggable** permet d'encapsuler un widget et de le rendre... draggable.
 
@@ -64,7 +64,7 @@ Widget build(BuildContext context) {
     final item = new LabelBox(size: new Size.square(200.0), label: 'Madrid');
     final avatar = new LabelBox(
         size: new Size.square(150.0), label: 'Madrid', opacity: 0.4);
-    final draggable = new Draggable(
+    final draggable = new Draggable<String>(
       data: widget.text,
       feedback: avatar,
       child: item,
@@ -81,7 +81,7 @@ Widget build(BuildContext context) {
 En général, une interaction de drag'n'drop n'a pas pour but de déplacer un composant graphique, mais plutôt une donnée qui lui est associée.
 Pour définir les données à associer à un *Draggable*, on utilise sa propriété **data**.
 
-### DragTarget : zone de dépôt
+### DragTarget<T> : zone de dépôt
 
 Voyons maintenant comment définir une "zone de dépôt".
 
@@ -94,7 +94,7 @@ Ce container va nous permettre de définir les callbacks gérant les opérations
 - **onAccept** : permet de définir une "réaction" au dépot 
 
 ```dart
-new DragTarget(
+new DragTarget<String>(
   builder: (BuildContext context, List<dynamic> accepted,
       List<dynamic> rejected) {
     final hovered = accepted.length > 0;
