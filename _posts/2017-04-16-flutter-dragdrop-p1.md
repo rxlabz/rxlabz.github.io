@@ -111,7 +111,7 @@ Dans cet exemple, on accepte qu'un seul dépot : une fois que la zone a une *sel
 - [code complet de cet exemple](https://github.com/rxlabz/flutter_dropcity/blob/master/lib/drag_drop_basics.dart)
 - [petit jeu de capitale](https://github.com/rxlabz/flutter_dropcity/blob/master/lib/main.dart)
 
-![dropcity]({{"/img/add_file_tpl.jpg" | prepend:site.baseurl }})
+![dropcity]({{"/img/dropcity1.png" | prepend:site.baseurl }})
 
 **repo officiel**
 
