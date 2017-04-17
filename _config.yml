@@ -19,7 +19,7 @@ github_username:  rxlabz
 markdown: kramdown
 kramdown:
   input: GFM
-highlighter: pygments
+highlighter: rouge
 
 #options
 comments: true
