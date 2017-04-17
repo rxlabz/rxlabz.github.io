@@ -119,7 +119,8 @@ new DragTarget<String>(
 Dans cet exemple, on accepte un seul dépot par zone : une fois qu'une objet est déposé,
 La zone récupère la donnée de l'objet déposé, et aux prochains survols, les dépots sont refusés.
 
-Dans [Dropcity](https://github.com/rxlabz/flutter_dropcity/blob/master/lib/main.dart), le second exemple, les élements ne peuvent être déplacés que sur les cibles, et peuvent être "ressorties" après dépot.
+Dans [Dropcity](https://github.com/rxlabz/flutter_dropcity/blob/master/lib/main.dart), le second exemple,
+les élements ne peuvent être déplacés que sur les cibles, et peuvent être "ressortis" après dépot.
 
 ![dropcity]({{"/img/dropcity1.png" | prepend:site.baseurl }})
 
