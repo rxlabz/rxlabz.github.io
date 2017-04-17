@@ -5,7 +5,7 @@ date:   2017-04-16 00:00:00 +0100
 categories: dart, flutter
 ---
 
-Flutter propose plusieurs options pour gérer des interactions de drag'n'drop.
+[Flutter](https://flutter.io) propose plusieurs options pour gérer des interactions de drag'n'drop.
 
 Nous nous intéressons ici à la plus simple : à l'aide des [Draggable\<T\>](https://docs.flutter.io/flutter/widgets/Draggable-class.html) et [DragTarget\<T\>](https://docs.flutter.io/flutter/widgets/DragTarget-class.html). 
 
