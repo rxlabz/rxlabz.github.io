@@ -7,7 +7,7 @@ categories: dart, flutter
 
 Flutter propose plusieurs options pour gérer des interactions de drag'n'drop.
 
-Nous nous intéressons ici à la plus simple : à l'aide des [Draggable<T>](https://docs.flutter.io/flutter/widgets/Draggable-class.html) et [DragTarget<T>](https://docs.flutter.io/flutter/widgets/DragTarget-class.html). 
+Nous nous intéressons ici à la plus simple : à l'aide des [Draggable\<T\>](https://docs.flutter.io/flutter/widgets/Draggable-class.html) et [DragTarget\<T\>](https://docs.flutter.io/flutter/widgets/DragTarget-class.html). 
 
 Flutter privilégie très souvent la composition à l'héritage. 
 De nombreuses fonctionnalités du framework fonctionnent par superpositions de couches de fonctionnalités. 
