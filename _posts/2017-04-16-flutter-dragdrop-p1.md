@@ -71,17 +71,50 @@ Widget build(BuildContext context) {
 
 ## DragTarget
 
-Voyons maintenant comment complexifier un peu ce 1er proto, en définissant des "zones de dépôt". 
+Voyons maintenant comment complexifier un peu ce 1er proto, en définissant une "zone de dépôt". 
 
-Pour cela il est possible d'utiliser les 
+Pour cela il est possible d'utiliser un widget *DragTarget*.
 
-- onWillAccept
-- onAccept
+Cette container va nous permettre de définir trois callbacks pour gérer le dépot :
 
+- un *builder* : ce callback recevra le context, la liste des élements en cours de survol de la zone, et les éléments rejetés.
+- *onWillAccept* : permet de déterminer les conditions d'acceptation du dépot
+- *onAccept* : permet de définir une "réaction" au dépot 
 
+```dart
+new DragTarget(
+  builder: (BuildContext context, List<dynamic> accepted,
+      List<dynamic> rejected) {
+    final hovered = accepted.length > 0;
+    return new Container(
+        width: 200.0,
+        height: 200.0,
+        decoration: new BoxDecoration(
+            backgroundColor: hovered
+                ? Colors.cyan.shade100
+                : Colors.grey.shade200,
+            border: new Border.all(
+                width: 2.0,
+                color: hovered ? Colors.cyan : Colors.grey)),
+        child: new Center(child: new Text(selection ?? 'Drop here' )));
+  },
+  onWillAccept: (value) => selection == null,
+  onAccept: (value) => setState(() {
+        selection = value;
+}))
+```
 
+Dans cet exemple, on accepte qu'un seul dépot : une fois que la zone a une *selection*, les dépots sont refusés.
 
-## Exemples
+## Examples
 
-- drag_drop_test.dart
-- material_arc.dart
+- [code complet de cet exemple](https://github.com/rxlabz/flutter_dropcity/blob/master/lib/drag_drop_basics.dart)
+- [petit jeu de capitale](https://github.com/rxlabz/flutter_dropcity/blob/master/lib/main.dart)
+
+![dropcity]({{"/img/add_file_tpl.jpg" | prepend:site.baseurl }})
+
+**repo officiel**
+
+- [basics](https://github.com/flutter/flutter/blob/master/dev/manual_tests/drag_and_drop.dart)  
+- [advanced](https://github.com/flutter/flutter/blob/master/dev/manual_tests/material_arc.dart)
+arc.dart
