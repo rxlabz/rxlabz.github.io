@@ -5,7 +5,7 @@ date:   2017-04-27 00:00:00 +0100
 categories: dart, flutter
 ---
 
-Ce n'est pas encore bien documenté, mais Flutter propose une alternative au mécanisme de propogation d'évenements DOM : 
+Ce n'est pas encore bien documenté, mais Flutter propose un mécanisme assez proche de la propagation d'évènements façon DOM : 
 il s'agit des **[notifications](https://docs.flutter.io/flutter/widgets/Notification-class.html)**.
 
 ## Définir un type de notification
