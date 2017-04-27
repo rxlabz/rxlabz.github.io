@@ -82,4 +82,4 @@ On peut retrouver quelques Notifications dans le code source du framework, en pa
  et du layout ([SizeChangedLayoutNotification](https://docs.flutter.io/flutter/widgets/SizeChangedLayoutNotification-class.html)).
  
 
-=> [Sources complétes de l'exemple](https://github.com/rxlabz/flutter_examples/blob/master/lib/color_notif_app.dart)
+=> [Sources de l'exemple](https://github.com/rxlabz/flutter_examples/blob/master/lib/color_notif_app.dart)
