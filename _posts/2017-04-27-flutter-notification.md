@@ -21,7 +21,7 @@ class ColorNotification extends Notification {
 
 ## Émettre une notification
 
-On crée ici un composant ColorBox, contenant un Inkell, émettant une ColorNotification à chaque *tap*.
+On crée ici un composant ColorBox, contenant un InkWell, émettant une ColorNotification à chaque *tap*.
 
 ```dart
 class ColorBox extends StatelessWidget {
@@ -45,7 +45,7 @@ class ColorBox extends StatelessWidget {
 }
 ```
 
-Après **dispatch()**, une notif est "délivrée" aux écouteurs de notifications,
+Après **dispatch()**, la notif est "signalée" aux écouteurs de notifications,
  **[NotificationListener](https://docs.flutter.io/flutter/widgets/NotificationListener-class.html)**, 
  déclarés dans les widgets parents.
 
