@@ -8,12 +8,9 @@ categories: dart, flutter
 Ce n'est pas encore bien documenté, mais Flutter propose une alternative au mécanisme de propogation d'évenements DOM : 
 il s'agit des **[notifications](https://docs.flutter.io/flutter/widgets/Notification-class.html)**.
 
-## dispatch de notification
+## Définir un type de notification
 
-
-## Implémenter une Notification
-
-Le principe est d'étendre la classe Notification pour définir un signal, et y associer des données que l'on souhaite transmettre aux composants parents.
+Le principe est d'étendre la classe Notification pour définir un signal, et éventuellement y associer des données à transmettre aux composants parents.
 
 ```dart
 class ColorNotification extends Notification {
@@ -24,7 +21,7 @@ class ColorNotification extends Notification {
 
 ## Émettre une notification
 
-Dans ce petit exemple, on crée un composant ColorBox, qui émet une ColorNotification à chaque clic.
+On crée ici un composant ColorBox, contenant un Inkell, émettant une ColorNotification à chaque *tap*.
 
 ```dart
 class ColorBox extends StatelessWidget {
@@ -81,7 +78,8 @@ des [ChangeNotifier](https://docs.flutter.io/flutter/foundation/ChangeNotifier-c
 ou des [ValueNotifier](https://docs.flutter.io/flutter/foundation/ValueNotifier-class.html).
 
 On peut retrouver quelques Notifications dans le code source du framework, en particulier autour de la gestion du scrolling
- ( [ScrollNotification](https://docs.flutter.io/flutter/widgets/ScrollNotification-class.html) )
+ ( [ScrollNotification](https://docs.flutter.io/flutter/widgets/ScrollNotification-class.html) ) 
+ et du layout ([SizeChangedLayoutNotification](https://docs.flutter.io/flutter/widgets/SizeChangedLayoutNotification-class.html)).
  
 
 => [Sources complétes de l'exemple](https://github.com/rxlabz/flutter_examples/blob/master/lib/color_notif_app.dart)
