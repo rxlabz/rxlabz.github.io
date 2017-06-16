@@ -46,32 +46,33 @@ Je vais plutôt m'étendre sur la joie et la béatitude que m'a apporté Flutter
 
 ![spring joy](https://media2.giphy.com/media/wNipYAoZ3iaEE/200.gif)
 
-## 1. Echanges Dart <-> iOS & Dart <-> Android
+## 1. Echanges Flutter <-> iOS & Flutter <-> Android
  
 Comme les autres solutions, 
-Flutter offre un moyen d'accéder à l'ensemble des fonctions de l'OS sur lequel l'appli est lancé.
+Flutter offre un moyen d'accéder à l'ensemble des fonctions de l'OS sur lequel l'appli est lancée.
 Contrairement à d'autres solutions, ce moyen est simple, et le plus souvent sans aucune configuration capillotractée. 
 
-L'équipe ayant (pour le moment?) abandonné l'export d'application MacOS,
+L'équipe ayant (pour le moment?) abandonné la compilation d'application MacOS,
 3 plateformes sont officiellement gérées : iOS, Android et [*Fuchsia*](https://github.com/fuchsia-mirror). 
 Et ne m'étant pas encore aventuré dans les secrets (ouverts) de cette dernière, 
 mon retour d'expérience concerne les deux principales plateformes mobiles à ce jour : **iOS et Android**.
 
-Le principe d'accès aux fonctionnalités natives est basé sur l'ouverture et l'utilisation de *canaux*. 
+L'accès aux fonctionnalités natives est basé sur l'ouverture et l'utilisation de *canaux*. 
 Ces canaux permettent :
 
 - soit d'**appeler des méthodes de Dart vers le natif**, ( et/ou inversement ) : 
-cf [MethodChannel](https://docs.flutter.io/flutter/services/MethodChannel-class.html)
+cf. [MethodChannel](https://docs.flutter.io/flutter/services/MethodChannel-class.html)
 - soit d'**envoyer des streams** de Dart vers le natif ( et/ou inversement ), 
 pour **diffuser des flux de données** (venant d'un capteur par exemple) : 
-cf [BasicMessageChannel](https://docs.flutter.io/flutter/services/BasicMessageChannel-class.html) 
+cf. [BasicMessageChannel](https://docs.flutter.io/flutter/services/BasicMessageChannel-class.html) 
 
 C'est très simple, et très efficace. Pour ceux qui ont connus l'[AMF](https://en.wikipedia.org/wiki/Action_Message_Format), on retrouve un peu le même principe d'appel de méthodes distantes, sauf que dans le cas présent, ce n'est pas une communication client->serveur mais DartVM<->OS hôte. Les canaux gérent automatiquement la [**sérialisation des types "basiques"**](https://flutter.io/platform-channels/#codec) : String, Map, List et les différents types numériques. 
  
-Pour les *methodCalls* : 
+Pour invoquer une méthode: 
 - côté Dart/Flutter, on instancie un canal **MethodChannel**, en lui donnant un identifiant,
 - et on instancie l'équivalent, **en ObjC ou Swift pour iOS**, 
 - et/ou **en Java ou Kotlin pour Android**.
+- on définit ensuite pour chaque canal, un *messageHandler*, en définissant son API, la liste des méthodes auxquelles le canal donne accès.
 
 Ensuite, il ne reste qu'à invoquer des méthodes via les canaux, d'un côté vers l'autre, en transmettant, ou pas, des arguments. 
 
@@ -134,9 +135,11 @@ new MethodChannel(getFlutterView(), "plugin_demo").setMethodCallHandler(
 
 Même principe, mais cette fois **`invokeMethod`** est appelé côté "hôte", pour une exécution côté Dart.
 
-Maintenant qu'on a le principe, au prochain épisode nous regarderons un exemple concret/complet avec l'implementation de la reconnaissance vocale. 
+Maintenant qu'on a le principe, au prochain épisode nous regarderons un exemple concret/complet avec l'implémentation de la reconnaissance vocale. 
 
 [> Flutter, API natives et plugins (2/3) ]({{ site.baseurl }}{% post_url 2017-06-13-sytody-flutter-natif-plugins2 %})
+
+![speakToIt](https://media4.giphy.com/media/v4en5Vk01dV84/200.gif#13-grid1)
 
 ## Ressources
 
