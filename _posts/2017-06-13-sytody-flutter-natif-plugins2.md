@@ -12,7 +12,8 @@ excerpt_separator: <!--more-->
 
 <!--more-->
 
-Dans la [première partie]({{ site.baseurl }}{% post_url 2017-06-13-sytody-flutter-natif-plugins %}) nous avons vu les bases de l'utilisation des *MethodChannels*.
+1. Dans la [première partie]({{ site.baseurl }}{% post_url 2017-06-13-sytody-flutter-natif-plugins %}) nous avons vu les bases de l'utilisation des *MethodChannels*.
+
 Nous allons maintenant regarder plus en détail une implémentation de base de la reconnaissance vocale. 
 
 ## Speech recognition
