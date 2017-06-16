@@ -134,7 +134,7 @@ new MethodChannel(getFlutterView(), "plugin_demo").setMethodCallHandler(
 
 Même principe, mais cette fois **`invokeMethod`** est appelé côté "hôte", pour une exécution côté Dart.
 
-Maintenant qu'on a le principe, [au prochain épisode]() nous regarderons un exemple concret/complet avec l'implementation de la reconnaissance vocale. 
+Maintenant qu'on a le principe, au prochain épisode nous regarderons un exemple concret/complet avec l'implementation de la reconnaissance vocale. 
 
 [> Flutter, API natives et plugins (2/3) ]({{ site.baseurl }}{% post_url 2017-06-13-sytody-flutter-natif-plugins2 %})
 
