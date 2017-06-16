@@ -2,7 +2,7 @@
 layout: post
 title:  "Flutter, API natives et plugins (3/3)"
 date:   2017-06-15 02:00:00 +0100
-categories: dart, flutter, iOS, Android
+categories: dart flutter
 excerpt_separator: <!--more-->
 ---
 
@@ -88,3 +88,10 @@ pub publish
 - [l'appli Sytody](http://github.com/rxlabz/sytody)
 - [speech_recognition plugin](http://github.com/rxlabz/speech_recognition)
 - [les plugins et packages Flutter](https://pub.dartlang.org/flutter/packages/)
+
+<div class="share-page">
+    Share this on &rarr;
+    <a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ page.url }}&via={{ site.twitter_username }}&related={{ site.twitter_username }}" rel="nofollow" target="_blank" title="Share on Twitter">Twitter</a>
+    <a href="https://facebook.com/sharer.php?u={{ site.url }}{{ page.url }}" rel="nofollow" target="_blank" title="Share on Facebook">Facebook</a>
+    <a href="https://plus.google.com/share?url={{ site.url }}{{ page.url }}" rel="nofollow" target="_blank" title="Share on Google+">Google+</a>
+</div>

@@ -2,7 +2,7 @@
 layout: post
 title:  "Flutter, API natives et plugins (2/3)"
 date:   2017-06-15 01:00:00 +0100
-categories: dart, flutter, iOS, Android
+categories: dart flutter
 excerpt_separator: <!--more-->
 ---
 
