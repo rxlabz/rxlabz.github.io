@@ -13,6 +13,10 @@ quasi transparente des fonctionnalités natives depuis Flutter/Dart.
 
 <!--more-->
 
+Dans la [première partie]({{ site.baseurl }}{% post_url 2017-06-13-sytody-flutter-natif-plugins %}) nous avons vu les bases de l'utilisation des *MethodChannels*.
+Dans la [seconde partie]({{ site.baseurl }}{% post_url 2017-06-13-sytody-flutter-natif-plugins2 %}) nous avons vu comment utiliser les API de *speech recognition*.
+Nous allons maintenant voir comment modulariser ce code en créant un plugin.
+
 ## Le système de plugin 😍  
 
 Les plugins sont gérés comme de simples packages (dépendances), via `pub` le gestionnaire de packages de Dart.

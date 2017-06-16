@@ -12,6 +12,9 @@ excerpt_separator: <!--more-->
 
 <!--more-->
 
+Dans la [première partie]({{ site.baseurl }}{% post_url 2017-06-13-sytody-flutter-natif-plugins %}) nous avons vu les bases de l'utilisation des *MethodChannels*.
+Nous allons maintenant regarder plus en détail une implémentation de base de la reconnaissance vocale. 
+
 ## Speech recognition
 
 Dans Sytody, l'UI fontionne de la manière suivante : 
@@ -170,7 +173,7 @@ override func application(
 ```
 
 l'implémentation de ces méthodes ne concerne pas Flutter, donc je ne rentre pas plus dans le détails.
-cf. [/Users/rxlabz/dev/projects/sytody_app/ios/Runner/AppDelegate.swift](https://github.com/rxlabz/sytody/blob/master/ios/Runner/AppDelegate.swift)
+cf. [AppDelegate.swift](https://github.com/rxlabz/sytody/blob/master/ios/Runner/AppDelegate.swift)
 
 
 #### Android / Java
@@ -206,7 +209,7 @@ speechChannel = new MethodChannel(getFlutterView(), SPEECH_CHANNEL);
         );
 ```
 
-cf. [sytody_app/android/app/src/main/java/bz/rxla/flutter/sytody/MainActivity.java](https://github.com/rxlabz/sytody/blob/master/android/app/src/main/java/bz/rxla/flutter/sytody/MainActivity.java)
+cf. [MainActivity.java](https://github.com/rxlabz/sytody/blob/master/android/app/src/main/java/bz/rxla/flutter/sytody/MainActivity.java)
 
 Voilà pour une v0.1, et pour cette deuxième partie.
 
