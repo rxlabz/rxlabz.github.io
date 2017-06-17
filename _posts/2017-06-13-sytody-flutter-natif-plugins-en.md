@@ -13,7 +13,7 @@ It's a small experiment made in few hours with Flutter, during a rainy weekend �
 
 <!--more-->
 
-That this story begins in May is in no way innocuous, quite the contrary ... It is well known, in french we say : 
+That this story begins in May is in no way trivial, quite the contrary ... It is well known, in french we say : 
 
 >**"En mai, fais ce qu'il te plait !"**.
 
@@ -81,8 +81,8 @@ String platformVersion = await _channel.invokeMethod('getPlatformVersion');
 
 #### iOS - Swift
 
-- On crée là aussi un canal `FlutterMethodChannel` nommé "plugin_demo"
-- on définit une fonction chargée de gérer les appels venant de Flutter.
+- There is also created a **`FlutterMethodChannel`** channel named "plugin_demo"
+- A function is defined to handle the calls coming from Flutter.
 
 ```swift
 let controller : FlutterViewController = window?.rootViewController as! FlutterViewController;
@@ -100,7 +100,7 @@ flutterChannel.setMethodCallHandler({
 
 #### Android - Java
 
-- mêmes principes que pour iOS
+Same principles as for iOS :
 
 ```dart
 new MethodChannel(getFlutterView(), "plugin_demo").setMethodCallHandler(
@@ -118,15 +118,13 @@ new MethodChannel(getFlutterView(), "plugin_demo").setMethodCallHandler(
 
 ### Natif vers Dart
 
-Même principe, mais cette fois **`invokeMethod`** est appelé côté "hôte", pour une exécution côté Dart.
+Same principle again, but this time **`invokeMethod`** is called by the host, to be executed by Dart on the Flutter side.
 
-Maintenant qu'on a le principe, au prochain épisode nous regarderons un exemple concret/complet avec l'implementation de la reconnaissance vocale. 
+Now that we have the principle, in the next episode we will look at a concrete / complete example with the implementation of speech recognition. 
 
-[> Flutter, API natives et plugins (2/3) ]({{ site.baseurl }}{% post_url 2017-06-13-sytody-flutter-natif-plugins2 %})
+## Resources
 
-## Ressources
-
-- [Documentation](https://flutter.io/platform-plugins/)
-- [l'appli Sytody](http://github.com/rxlabz/sytody)
-- [speech_recognition plugin](http://github.com/rxlabz/speech_recognition)
-- [les plugins et packages Flutter](https://pub.dartlang.org/flutter/packages/)
+- [Flutter Documentation](https://flutter.io/platform-plugins/)
+- [The Sytody project](http://github.com/rxlabz/sytody)
+- [The speech_recognition plugin](http://github.com/rxlabz/speech_recognition)
+- [Flutter plugins and packages](https://pub.dartlang.org/flutter/packages/)
