@@ -76,24 +76,16 @@ class SpeechRecognizer {
   }
 
   // activation / permission
-  static Future activate() {
-    return _speech_channel.invokeMethod("activate");
-  }
+  static Future activate() =>_speech_channel.invokeMethod("activate");
 
   // démarrage de l'écoute
-  static Future start(String lang) {
-    return _speech_channel.invokeMethod("start", lang);
-  }
+  static Future start(String lang) =>_speech_channel.invokeMethod("start", lang);
 
   // arrêt de l'écoute et annulation de la transcription
-  static Future cancel() {
-    return _speech_channel.invokeMethod("cancel");
-  }
+  static Future cancel() =>_speech_channel.invokeMethod("cancel");
 
   // arrêt de l'écoute et finalisation de la transcription
-  static Future stop() {
-    return _speech_channel.invokeMethod("stop");
-  }
+  static Future stop() =>_speech_channel.invokeMethod("stop");
 }
 
 ```
@@ -107,8 +99,6 @@ Future _platformCallHandler(MethodCall call) async {
         setState(() => isListening = call.arguments);
         break;
       case "onSpeech":
-        print('_TranscriptorAppState._platformCallHandler '
-            '=> onSpeech = ${call.arguments}');
         if (todos.isNotEmpty) {
           if (transcription != todos.last.label) {
             setState(() => transcription = call.arguments);
@@ -117,15 +107,10 @@ Future _platformCallHandler(MethodCall call) async {
           setState(() => transcription = call.arguments);
         break;
       case "onRecognitionStarted":
-        print('_TranscriptorAppState._platformCallHandler '
-            '=> started');
         setState(() => isListening = true);
         break;
       case "onRecognitionComplete":
-        print('_TranscriptorAppState._platformCallHandler '
-            '=> onRecognitionComplete = ${call.arguments}');
         setState(() {
-          //isListening = false;
           if (todos.isEmpty) {
             transcription = call.arguments;
           } else if (call.arguments == todos.last?.label)
