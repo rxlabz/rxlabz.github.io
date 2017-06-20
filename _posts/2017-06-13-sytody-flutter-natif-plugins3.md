@@ -14,17 +14,17 @@ quasi transparente des fonctionnalités natives depuis Flutter/Dart.
 <!--more-->
 
 1. Dans la [première partie]({{ site.baseurl }}{% post_url 2017-06-13-sytody-flutter-natif-plugins %}) nous avons vu les bases de l'utilisation des *MethodChannels*.
-2. Dans la [seconde partie]({{ site.baseurl }}{% post_url 2017-06-13-sytody-flutter-natif-plugins2 %}) nous avons vu comment utiliser les API de *speech recognition*.
+2. Dans la [seconde partie]({{ site.baseurl }}{% post_url 2017-06-13-sytody-flutter-natif-plugins2 %}) nous avons vu comment créer un canal dédié à la *speech recognition*.
 
-Nous allons maintenant voir comment modulariser ce code en créant un plugin.
+Nous allons maintenant voir comment modulariser ce code en créant un plugin Flutter pour iOS & Android.
 
 ## Le système de plugin 😍  
 
-Les plugins sont gérés comme de simples packages (dépendances), via `pub` le gestionnaire de packages de Dart.
+Les plugins Flutter sont gérés comme de simples packages (dépendances), via `pub` le gestionnaire de packages de Dart.
 Il suffit de déclarer la dépendance, de `pub get`, et Flutter se charge de metre à jour le projet XCode et Android.
 C'est tellement efficace et transparent, 
 que pour le moment je n'ai même pas encore eu à comprendre ce qu'était Graddle,
-ni comment marche un podfile. Tout est géré par Flutter 😎🍹!
+ni comment marche un podfile. Tout est géré par Flutter 😎🍹! ça laisse plus de temps pour développer l'appli :)
 
 Même si le [catalogue de plugins Flutter](https://pub.dartlang.org/flutter/plugins/) est encore embryonnaire, 
 il propose déjà quelques outils utiles, voire nécessaires.
@@ -71,10 +71,78 @@ Flutter CLI propose une commande de génération de dossier de plugin, contenant
 ```bash
 flutter create -i swift --org bz.rxla --plugin mon_plugin
 ```
+
 - `-i swift` : on souhaite utiliser Swift pour le code iOS, et pas ObjC défini par défaut
 - `-a kotlin` : si on souhaite utiliser Kotlin à la place du Java par défaut côté Android
 - `--org mon.domaine` : namespace du plugin 
 - `--plugin mon_plugin` : le nom du plugin
+
+On peut noter que la même commande avec `un_projet` à la place de `--plugin mon_plugin` générera un projet Flutter Swift/Java. C'est ce qu'il faut utiliser pour les exemples prédécents. Je sais j'aurais pu le dire plus tôt... mieux vaut tard ! 
+
+Le code généré est simple, il s'agit tout simplement de la création d'un canal dédié pour le plugin en cours/
+
+#### Flutter / Dart
+
+Voici le code généré pour la partie Dart du plugin :
+
+```dart
+// plugin_demo/lib/plugin_demo.dart
+
+class PluginDemo {
+  static const MethodChannel _channel =
+      const MethodChannel('plugin_demo');
+
+  static Future<String> get platformVersion =>
+      _channel.invokeMethod('getPlatformVersion');
+}
+```
+
+#### iOS / Swift
+
+
+L'utilisation de Swift ajoute une petite couche, avec la génération à la fois de fichiers ObjC PluginDemoPlugin.h & .m, et la class SwiftPluginDemoPlugin.
+
+```swift
+// plugin_demo/ios/classes/SwiftPluginDemoPlugin.swift
+
+public class SwiftPluginDemoPlugin: NSObject, FlutterPlugin {
+  public static func register(with registrar: FlutterPluginRegistrar) {
+    let channel = FlutterMethodChannel(name: "plugin_demo", binaryMessenger: registrar.messenger());
+    let instance = SwiftPluginDemoPlugin();
+    registrar.addMethodCallDelegate(instance, channel: channel);
+  }
+
+  public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
+    result("iOS " + UIDevice.current.systemVersion);
+  }
+}
+```
+
+#### Android / Java
+
+```dart
+// plugin_demo/android/src/main/java/mon/domaine/plugin_demo/PluginDemoPlugin.java
+
+public class PluginDemoPlugin implements MethodCallHandler {
+  /**
+   * Plugin registration.
+   */
+  public static void registerWith(Registrar registrar) {
+    final MethodChannel channel = new MethodChannel(registrar.messenger(), "plugin_demo");
+    channel.setMethodCallHandler(new PluginDemoPlugin());
+  }
+
+  @Override
+  public void onMethodCall(MethodCall call, Result result) {
+    if (call.method.equals("getPlatformVersion")) {
+      result.success("Android " + android.os.Build.VERSION.RELEASE);
+    } else {
+      result.notImplemented();
+    }
+  }
+}
+```
+Un des aspects intéressants de ce système est l'auto-détection / installation des plugins "natifs"
 
 A partir de là, il ne reste plus qu'à bouger la classe SpeechRecognition vers le projet plugin, ainsi que le code Swift et Java associé.
 cf. [speech_recognition plugin](http://github.com/rxlabz/speech_recognition)
@@ -89,7 +157,7 @@ pub publish
 
 ## Ressources
 
-- [Documentation](https://flutter.io/platform-plugins/)
+- [Documentation Flutter](https://flutter.io/platform-plugins/)
 - [l'appli Sytody](http://github.com/rxlabz/sytody)
 - [speech_recognition plugin](http://github.com/rxlabz/speech_recognition)
 - [les plugins et packages Flutter](https://pub.dartlang.org/flutter/packages/)

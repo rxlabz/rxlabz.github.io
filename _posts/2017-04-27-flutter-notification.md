@@ -31,17 +31,15 @@ class ColorBox extends StatelessWidget {
   ColorBox(this.color) : notif = new ColorNotification(color);
 
   @override
-  Widget build(BuildContext context) {
-    return new Padding(
-        padding: new EdgeInsets.symmetric(horizontal: 20.0),
-        child: new InkWell(
-            onTap: () => notif.dispatch(context),
-            child: new Container(
-              color: color,
-              width: 100.0,
-              height: 100.0,
-            )));
-  }
+  Widget build(BuildContext context) => new Padding(
+    padding: new EdgeInsets.symmetric(horizontal: 20.0),
+    child: new InkWell(
+        onTap: () => notif.dispatch(context),
+        child: new Container(
+          color: color,
+          width: 100.0,
+          height: 100.0,
+        )));
 }
 ```
 
@@ -55,10 +53,8 @@ Pour déclarer un écouteur de Notification, on rajoute une "couche" **Notificat
 
 ```dart
 @override
-  Widget build(BuildContext context) {
-    return new NotificationListener<ColorNotification>(
-        onNotification: onColorNotif, child: getColorBoxes());
-  }
+  Widget build(BuildContext context) =>  new NotificationListener<ColorNotification>(
+    onNotification: onColorNotif, child: getColorBoxes());
 
   bool onColorNotif(ColorNotification notification) {
     setState(() => selectedColor = notification.color);

@@ -58,9 +58,20 @@ Si c'est le 1er lancement, sur iOS et Android 7.1+, l'utilisateur doit accepter 
 
 ### 1ère implémentation
 
+#### Création du projet
+
+```bash
+flutter create -i swift --org mon.domaine projet_speech
+```
+
+- `-i swift` : on souhaite utiliser Swift pour le code iOS, et pas ObjC défini par défaut
+- `-a kotlin` : si on souhaite utiliser Kotlin à la place du Java par défaut côté Android
+- `--org mon.domaine` : namespace du projet 
+- `projet_speech` : le nom du projet
+
 #### Flutter / Dart
 
-Ici une class SpeechRecognizer qui gère les échanges Flutter/OS
+On peut créer une classe SpeechRecognizer pour gérer les échanges Flutter/OS
 
 ```dart
 const MethodChannel _speech_channel =
@@ -90,7 +101,7 @@ class SpeechRecognizer {
 
 ```
 
-Dans cette première implémentation, le handler des appels venant de l'OS est défini en dehors de la classe SpeechRecognizer
+Dans cette première implémentation, une méthode handler globale est défini pour les appels venant de l'OS
 
 ```dart
 Future _platformCallHandler(MethodCall call) async {
@@ -99,24 +110,20 @@ Future _platformCallHandler(MethodCall call) async {
         setState(() => isListening = call.arguments);
         break;
       case "onSpeech":
-        if (todos.isNotEmpty) {
-          if (transcription != todos.last.label) {
-            setState(() => transcription = call.arguments);
-          }
-        } else
-          setState(() => transcription = call.arguments);
+        if (todos.isNotEmpty) 
+          if (transcription == todos.last.label) 
+            return;
+        setState(() => transcription = call.arguments);
         break;
       case "onRecognitionStarted":
         setState(() => isListening = true);
         break;
       case "onRecognitionComplete":
         setState(() {
-          if (todos.isEmpty) {
-            transcription = call.arguments;
-          } else if (call.arguments == todos.last?.label)
-            // on ios user can have correct partial recognition
-            // => if user add it before complete recognition just clear the transcription
-            transcription = '';
+          // on ios user can have correct partial recognition
+          // => if user add it before complete recognition just clear the transcription
+          if (call.arguments == todos.last?.label)
+              transcription = '';
           else
             transcription = call.arguments;
         });
