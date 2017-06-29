@@ -111,8 +111,9 @@ L'utilisation de Swift ajoute une petite couche, avec la génération à la fois
 
 Le fichier `SwiftPluginDemoPlugin.swift` contient le mécanisme qui permet l'auto-détection du plugin par une application :
  il s'agit ici de la méthode statique `register`, appelée par l'application au lancement
- pour transmettre un `FlutterPluginRegistrar`. Le rôle est du registrar est d'ajouter la méthode `handle` du plugin 
- à la liste des "récepteurs" des appels sur la MethodChannel, de manière à lui permettre de recevoir les appels qui lui sont destinés.
+ pour transmettre un `FlutterPluginRegistrar`. Le rôle est du registrar est d'ajouter le canal créé par le plugin 
+ à la liste des "récepteurs" des appels sur la MethodChannel, de manière à lui permettre de recevoir les appels qui lui sont destinés, 
+ via sa méthode `handle`.
 
 ```swift
 // plugin_demo/ios/classes/SwiftPluginDemoPlugin.swift
