@@ -60,7 +60,8 @@ Et c'est tout !
 
 ![happy](https://media.giphy.com/media/vOJ2QFIAZtyU0/200.gif)
 
-En fait c'est tout, sauf si le plugin ne nécessite des permissions particulières, c'est tou; mais dans le cas 
+En fait c'est tout, sauf si le plugin ne nécessite des permissions particulières, auquel cas il est nécessaire 
+d'éditer le fichier `.plist` pour iOS, et le `manifest.xml` pour Android.
 
 Ensuite au moment ou on lance l'application, selon l'OS visé, Flutter installera et gérera les dépendances iOS/Android, de manière à ce que le code natif soit correctement mis à disposition.
 
