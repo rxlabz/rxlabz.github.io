@@ -27,5 +27,6 @@ provider : disqus
 disqus :
     short_name : rxlabzlogs
 
-gems:
+plugins:
   - jemoji
+  - octopress-video-tag
