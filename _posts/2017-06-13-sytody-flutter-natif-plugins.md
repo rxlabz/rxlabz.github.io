@@ -27,7 +27,7 @@ en accélérant radicalement ma productivité pour le développement mobile, ouv
 
 J'aurais, je pense, l'occasion de revenir plus en détail sur les raisons de ce ⚡️ coup de foudre,
 et les particularités de cet outil, dont la version tout juste taggée *alpha*, 
-a déjà recueilli plus de [5000⭐️ Github](https://githib.com/flutter/flutter)...
+a déjà recueilli plus de [5000⭐️ Github](https://github.com/flutter/flutter)...
 
 Aujourd'hui, je prends le prétexte de Sytody, pour m'intéresser à un aspect particulier de Flutter : 
 sa gestion des échanges avec les plateformes "hôtes", 
