@@ -41,11 +41,36 @@ pre[class*="language-"] {
   background: #272822;
 }
 
+
+
 /* Inline code */
 :not(pre) > code[class*="language-"] {
-  padding: .1em;
+  padding: .3em .5em;
   border-radius: .3em;
   white-space: normal;
+
+  background: #e0e0e0;
+  text-shadow: none;
+  color:#456
+}
+
+a {
+  code[class*="language-"]{
+    background: #eaeaea;
+    color: $brand-color;
+    text-shadow: none;
+    text-decoration: underline;
+
+    &:hover {
+      background: #e0eafa;
+      color: $brand-color;
+      text-decoration: underline;
+    }
+
+    &:visited {
+      background: #d0d0d0;
+    }
+  }
 }
 
 .token.comment,

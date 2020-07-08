@@ -10,6 +10,8 @@ excerpt_separator: <!--more-->
 
 ![hello computer](https://media3.giphy.com/media/PxSFAnuubLkSA/200.gif)
 
+[English version](https://medium.com/@rxlabz/flutter-api-natives-et-plugins-2-3-27cbe7bb36ee)
+
 <!--more-->
 
 1. Dans la [première partie]({{ site.baseurl }}{% post_url 2017-06-13-sytody-flutter-natif-plugins %}) nous avons vu les bases de l'utilisation des *MethodChannels*.

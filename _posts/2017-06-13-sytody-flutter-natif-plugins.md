@@ -13,6 +13,8 @@ durant un week-end 🌦 de mai.
 
 ![spring](https://media.giphy.com/media/RrkNTIh8ymPPG/giphy.gif)
 
+[English version](https://medium.com/@rxlabz/flutter-native-apis-and-plugins-1-3-3db651d79a7c)
+
 <!--more-->
 
 Que ce récit débute au mois de mai n'est en rien anodin, bien au contraire... 

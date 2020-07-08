@@ -29,4 +29,3 @@ disqus :
 
 plugins:
   - jemoji
-  - octopress-video-tag

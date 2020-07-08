@@ -39,9 +39,10 @@ blockquote, pre, figure,
 /**
  * Set `margin-bottom` to maintain vertical rhythm
  */
-p, blockquote, ul, ol, dl,
+p, blockquote, ul, ol, dl,li,
 %vertical-rhythm {
     margin-bottom: $spacing-unit / 2;
+    line-height: 1.6;
 }
 
 
@@ -110,8 +111,12 @@ a {
         color: $text-color;
         text-decoration: underline;
     }
+
 }
 
+.mini-link{
+    font-size: 0.9rem;
+}
 
 
 /**

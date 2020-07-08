@@ -11,6 +11,8 @@ quasi transparente des fonctionnalités natives depuis Flutter/Dart.
 
 ![lighter](https://media2.giphy.com/media/fyiWlpMCHjWGk/200.gif)
 
+[English version](https://medium.com/hackernoon/flutter-native-apis-and-plugins-3-3-b84776fc8a7e)
+
 <!--more-->
 
 1. Dans la [première partie]({{ site.baseurl }}{% post_url 2017-06-13-sytody-flutter-natif-plugins %}) nous avons vu les bases de l'utilisation des *MethodChannels*.
