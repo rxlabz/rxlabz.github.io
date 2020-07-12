@@ -8,7 +8,7 @@ excerpt_separator: <!--more-->
 
 ![origin]({{"/img/algrafx/paper_to_canvas.png" | prepend:site.baseurl }})
 
-Petite rétrospective d'une expérimentation graphique de près de 20 ans en 15 étapes.
+A retrospective of a graphic experiment of almost 20 years in 15 stages.
 
 ____
 
@@ -16,17 +16,17 @@ ____
 
 # 2002
 
-Un jour, je me suis mis à dessiner des fléches...
+Someday I started to draw arrows...
 
 ![origin](https://rxlabz.github.io/img/algrafx/fleche_origin.png)
 
-beaucoup de flèches 😀 ... Du volume, du mouvement,...
+a lot of arrows 😀 ... Volume, motion,...
 
 ![old_arrows]({{"/img/algrafx/old_arrows.png" | prepend:site.baseurl }})
 
 # 2004
 
-Je les ai ensuite colorié avec Photoshop ou Illustrator.
+I colorized them with Photoshop and Illustrator.
 
 ![arf]({{"/img/algrafx/prise_de_tete.jpg" | prepend:site.baseurl }})
 
@@ -36,25 +36,26 @@ Je les ai ensuite colorié avec Photoshop ou Illustrator.
 
 # 2008
 
-Je développe en ActionScript, des applications Flash puis Flex. C'est à cette époque que je découvre l'art génératif; j'ai la chance de voir [Joshua Davis](https://joshuadavis.com) à FITC 2008 à Amsterdam. Je découvre aussi [Erik Natzke](http://blog.natzke.com) , ou encore les travaux de [Môssieur Nicoptère](http://barradeau.com/blog/?p=621)... Une grosse dose d'inspiration! 
+I mostly code Actionscript, Flash then Flex applications. I discover Generative art; I attend to a [Joshua Davis](https://joshuadavis.com) talk at FITC 2008 - Amsterdam. I also discover [Erik Natzke](http://blog.natzke.com) , and [Mister Nicoptère's works](http://barradeau.com/blog/?p=621)... A lot of inspiration! 
 
-Si Flash était un outil tout à fait approprié pour générer ce genre de graphisme... je ne voyais pas encore comment coder mes flèches. Mes expérimentations s'étaient arrêtées à une vague tentative d'interpolation de formes ( les vrais savent !).
+If Flash was a perfectly fitted tool to generate graphics, I wasn't skilled enough to code my arrows. I tried a bit with shape tweens... Without success.  
 
 ![Flash interpolation]({{"/img/algrafx/interpol.gif" | prepend:site.baseurl }})
 
 # 2010
 
-[Thoughts on Flash](https://en.wikipedia.org/wiki/Thoughts_on_Flash)... Flash entame sa retraite anticipée. 
+[Thoughts on Flash](https://en.wikipedia.org/wiki/Thoughts_on_Flash)... Flash begins its early retirement.
 
 # 2015
 
-je continue à développer des applications Flex, mais, forcé et contraint, je commence à m'intéresser à d'autres technologies. Le JS bien sûr :|..., mais Dart aussi 🥰.
-Durant ces explorations, je suis intrigué puis séduit par le principe des **Observables**, avec RXJS, mais aussi avec les [streams de Dart](https://dart.dev/tutorials/language/streams).
-Et c'est finallement en appliquant ces concepts à l'utilisation du canvas, que j'ai eu une idée d'implémentation pour générer quelque chose ressemblant à mes flèches 🎉 !
+2015, I'm still using Flex to develop most of my projects, I hadn't found a good enough replacement ( fast, mature ). But forced, constrained and realistic, I start to study other technologies. Javascript... but also Dart ! 🥰
+Coming from Actionscript, one of the first interesting new concept I discovered from the JS world, was **observables** and **RXJS**, and naturally Dart [`streams`](https://dart.dev/tutorials/language/streams).
 
-L'idée était finalement simple : un canvas interactif transformant une suite de positions du curseur en polygones "flèchés" : `curseur => points => polygones => fleches`
+It was by trying to apply this concepts to html canvas, that I finally had an idea to generate my arrows.
 
-Avec ses streams, Dart semblait parfaitement adapté. j'avais en tête quelque chose de ce genre : 
+The principle was finally very easy : I just needed to transform/map a stream of mouse position to a list of polygons : `cursor => points => polygons => arrows`
+ 
+With it's native streams Dart was a perfect candidate for this playground. I had something like this in mind :
 
 ```dart
 window
@@ -63,41 +64,46 @@ window
 
 # 2016
  
-J'arrive à boucler une 1ère version de [Algraphr](https://github.com/rxlabz/algraphr) en Dart 1 "vanilla".
-
+  I published a first version of [Algraphr](https://github.com/rxlabz/algraphr), coded in Vanilla Dart 1.x .
+ 
 [![algraphr]({{"/img/algrafx/algraphr.png" | prepend:site.baseurl }})](http://rxlabz.github.io/algraphr)
 
 <video src="https://github.com/rxlabz/rxlabz.github.io/blob/master/img/algrafx/clips/algraphr.mp4?raw=true" controls ></video>
 
-Avec le recul, je suis content de m'être lancé dans cette expérimentation. Dart 1  était déjà un language très confortable pour le développement web. J'ai rapidement pu :
-- dessiner dynamiquement du SVG, 
-- transformer le SVG en bitmap, 
-- l'afficher instantanèment dans un canvas,
-- l'exporter dans un PNG
+4 years later, I'm more than happy of this choice. Dart 1 was already a very smooth web tool. I was surprised how fast I achieved : 
+- dynamic svg drawing, 
+- real time conversion of SVG to bitmap,
+- display this bitmap in a html canvas
+- export it as PNG file
 
-Rien d'impossible à implémenter en JS, mais l'expérience avec Dart fut très plaisante. J'avais été frappé de la simplicité et l'efficacité de Dart pour ce projet :
- aucune dépendance, aucun outil à configurer 👍. 
+Nothing that could have not be coded in JS, but the Dart experience was delightful. Simple and effective : no dependency, nothing to config 🦄.
 
-Un mot sur cette première implémentation : les formes "dynamiques" sont dessinées en SVG, et lorsqu'on les "freeze", et elles sont redessinées sur un canvas.
-A dire vrai, je n'imaginais pas réellement au départ qu'une telle implémentation pourrait fonctionner de manière fluide... et pourtant ! ( Cette bonne surprise m'a aidé à poursuivre mon deuil de Flash :) ! )
- 
-L'histoire de Algraphr s'est longtemps arrêtée là.
+Just a word about this vanilla (Dart) web implementation : 
+- when the mouse move SVG shapes are drawn
+- when the spacebar is pressed, the shapes are "freezed" => the SVG is converted to bitmap,
+- and displayed in a canvas.
+
+Before doing it, I could not even imagine that this kind of process could be so fast ( it helped me a lot for my Flash grieve :) ! )
+
+The Algraphr experiment stopped there for a long time...
 
 # 2017
 
-Je découvre Flutter 💙. Tellement de chose à explorer... En quelques semaines je porte une de mes laborieuses applications Flex mobile en Flutter et depuis : 🤩 ! 
+I disciver Flutter 💙. So many things to explore... In few weeks, I rebuild one of my Flex mobile app, and from then : 🤩 ! 
 
 # 2019
 
-Adobe se sépare de la technologie Adobe AIR, et annonce le retrait définitif de Flash Player. 
+Adobe leaves AIR, its integrated Runtinme, and announce the final death of Flash browser plugin.
 
-Apparitions des [1ères expérimentations "génératives" avec Flutter](https://twitter.com/BlueAquilae/status/1168095910754160640)..., puis [Flutter web](https://flutter.dev/web) et enfin 
+[First generative creations from the Flutter community appears](https://twitter.com/BlueAquilae/status/1168095910754160640), then [Flutter web](https://flutter.dev/web) become a thing, and finally
 
 [![Flutter Create](https://pbs.twimg.com/media/ELdPozZWsAEdL9H?format=jpg&name=small)](https://twitter.com/FlutterDev/status/1204518995388485633) 
 
-avec, je ne sais toujours pas pourquoi, ma tête au milieu 🤯...
+with, I still don't know how/why, my face in it 🤯...
 
-Il était plus que temps d'implémenter une version Flutter : [Algrafx](https://rxlabz.github.io/algrafx/). Ce fut bien plus simple, et cela m'a permis de rapidement enrichir les options proposées. 
+So it was more than time to play with my old polygonal friends, and to write [Algrafx](https://rxlabz.github.io/algrafx/), a Flutter implementation of my arrows generator.
+
+Rewriting it with Flutter was way simpler, and allowed me to easily add more options. 
 
 ![algrafx](https://github.com/rxlabz/algrafx/blob/master/images/desktop.png?raw=true)
 
@@ -106,31 +112,28 @@ Il était plus que temps d'implémenter une version Flutter : [Algrafx](https://
 
 # 2020
 
-Codepen intégre un éditeur Flutter, et on voit fleurir nombre de démonstrations des capacités de Flutter web. 
-Je m'y essaye en intégrant d'abord [algrafx dans Codepen](https://codepen.io/rx-labz/pen/WNQoNem)... avant de bidouiller une suite de petites animations.
+Flutter appears [in Codepen](https://codepen.io/flutter), and we see a lot of Flutter demos showing Flutter web capabilities.
 
+I started to play with an [algrafx in Codepen](https://codepen.io/rx-labz/pen/WNQoNem)... and some other [abstract animations](https://codepen.io/rx-labz/).
 
 <video src="https://github.com/rxlabz/rxlabz.github.io/blob/master/img/algrafx/clips/rx_codepen.mp4?raw=true" controls ></video>
 
-Cf. [Codepen/rx-labz](https://codepen.io/rx-labz/)
-
-Tout cela nous amène à l'été 2020, et c'est l'occasion de poursuivre mes fléches !
+So here we are, summer 2020, and it's time to code more arrows !
 
 ____
 
-Au programme donc : dessin et animation de flèches dans un canvas Flutter ! Cela nous permettra de voir comment utiliser le Canvas de Flutter, pour opérations simples ( dessin de forme ) et plus évoluées ( dégradés, flou ).
+We are going to learn how to draw and animate arrows in a Flutter canvas. In doing so we will see how to use the canvas, for basic drawing and more advanced techniques such as gradients or blurring.
 
 <video src="https://github.com/rxlabz/rxlabz.github.io/blob/master/img/algrafx/clips/final.mp4?raw=true" controls ></video>
 
 ## ➡ Pour commencer
 
-Nous allons créer une application Flutter contenant un widget [`CustomPaint`](https://api.flutter.dev/flutter/widgets/CustomPaint-class.html).
+We'll start by creating a Flutter application with a [`CustomPaint widget`](https://api.flutter.dev/flutter/widgets/CustomPaint-class.html).
 
-[`CustomPaint`](https://api.flutter.dev/flutter/widgets/CustomPaint-class.html) nous donne accès à la couche de painting, et va nous permettre de manipuler un [`Canvas`](https://api.flutter.dev/flutter/dart-ui/Canvas-class.html), offrant les méthodes habituelles de dessins : `moveTo`, `lineTo`, `drawRect`, `drawCircle`...
+[`CustomPaint`](https://api.flutter.dev/flutter/widgets/CustomPaint-class.html) gives us the access to the painting layer, et allows us to manipulate the [`Canvas`](https://api.flutter.dev/flutter/dart-ui/Canvas-class.html), and its basic drawing methods : `moveTo`, `lineTo`, `drawRect`, `drawCircle`...
  
- La responsabilité de manipuler le canvas est déléguée à une instance de [`CustomPainter`](https://api.flutter.dev/flutter/rendering/CustomPainter-class.html), classe qu'il nous faut étendre pour "peindre" nos propres instructions. 
-
-
+ The control of the canvas is delegated to an instance of [`CustomPainter`](https://api.flutter.dev/flutter/rendering/CustomPainter-class.html), a class we must extend to paint our intructions. 
+ 
  ```dart
  import 'dart:ui';
   import 'package:flutter/material.dart';
@@ -142,7 +145,6 @@ Nous allons créer une application Flutter contenant un widget [`CustomPaint`](h
    ));
  }
  
-// on récupère la taille de la fenêtre pour dimensionner le dessin dans le canvas
  final size = window.physicalSize / window.devicePixelRatio;
  
  class Board extends StatelessWidget {
@@ -168,13 +170,14 @@ Nous allons créer une application Flutter contenant un widget [`CustomPaint`](h
  ```
 ____
   
-## Etape 0 : L'origine
+## Etape 0 : The origin
  
- >**Au commencement, il y eut un *point*...**
+ >**in the beginning there was... a point**
  
- Les plus grands voyages débutent par un 1er pas, ici nos lignes débuteront par un 1er point, ou plus exactement un rond, placé au centre de la fenêtre.
  
- Le dessin sur le canvas étant, pour l'instant, fixe, `shouldRepaint` renvoie `false`.
+The biggest trips start with a 1st step, here our lines will start with a 1st point, or more exactly a circle, placed in the center of the window.
+  
+The drawing on the canvas being fixed, `shouldRepaint` shoul returns` false`.
  
  
  ```dart
@@ -185,7 +188,6 @@ class Painter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-      // dessine un cercle de 10 pixels de rayon au milieu de l'écran 
       canvas.drawCircle(size.center(Offset.zero), radius, fill);
     }
 
@@ -202,7 +204,7 @@ ____
 
 ## Etape 1 : Follow this mouse
 
-L'idée est d'obtenir une série de points, et pour cela nous allons suivre le curseur. Nous pouvons utiliser un widget `MouseRegion`, qui nous permet de récupérer sa position, et l'injecter ensuite dans le painter.
+We'll track the cursor position to provide a list of positions. To do that we use a [MouseRegion](https://api.flutter.dev/flutter/widgets/MouseRegion-class.html).
 
 ```dart
 class Board extends StatefulWidget {
@@ -215,16 +217,16 @@ class _BoardState extends State<Board> {
 
   @override
   Widget build(BuildContext context) => MouseRegion(
-        // met à jour la position "mouse" à chaque mouvement de la souris
+        // update the mouse position when mouse moves
         onHover: (details) => setState(() => mouse = details.localPosition),
-        // construit un CustomPaint basé sur un Painter utilisant la position enregistrée 
+        // build a CustomPaint to draw at mouse position 
         child: CustomPaint(size: size, painter: Painter(mouse)),
       );
 }
 
 ```
 
-Nous injectons la position dans le painter, afin de re-dessiner le cercle à la position du curseur. A présent, le canvas sera re-dessiné pour chaque position du curseur, et `shouldRepaint` devra renvoyer `true` si la position change.
+The painter needs to know the position of the cursor, and repaint if the it changes.
 
 ```dart
 class Painter extends CustomPainter {
@@ -238,7 +240,6 @@ class Painter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    // dessine un cercle à la position reçue
     canvas.drawCircle(position, radius, fill);
   }
 
@@ -251,23 +252,21 @@ class Painter extends CustomPainter {
 
 ### Stream
 
-L'objectif étant de générer un graphisme en transformant un flux d'entrées en formes géometriques, on peut utiliser un `stream` et y ajouter les positions successives du curseur. Le `Painter` sera re-dessiné pour chaque valeur émise.
+The goal is to generate a graphic by transforming an input stream in geometric shapes, so we could use a `stream` and emit the positions of cursor. the `Painter` will be redrawn for each new value.
 
 ```dart
-// cf. 
 class _BoardState extends State<Board> {
   
-  // on crée un streamController : un émetteur de positions
+  // a streamController for cursor positions
   final StreamController<Offset> _streamer = StreamController<Offset>();
 
-  // le flux de positions
   Stream<Offset> get point$ => _streamer.stream;
 
   @override
   Widget build(BuildContext context) => MouseRegion(
-        // ajoute les positions successives au flux
+        // add positions to stream
         onHover: (details) => _streamer.add(details.localPosition),
-        // reconstruit le CustomPaint à chaque nouvelle position émise par le flux point$
+        // rebuild the painter for each position
         child: StreamBuilder<Offset>(
           initialData: Offset.zero,
           stream: point$,
@@ -287,19 +286,17 @@ class _BoardState extends State<Board> {
 
 ____
 
-## Etape 2 : Petit Poucet
+## Etape 2 : Tom Thumb
 
 ![step2]({{"/img/algrafx/steps/step2.gif" | prepend:site.baseurl }})
 
-Pour dessiner, nous allons laisser des traces du passage du curseur.
-Pour cela, au lieu d'émettre seulement un point, nous pouvons cumuler les positions successives du curseur dans une liste `_points`.  
+To draw we will draw all cumulated positions. To do that, we'll add, for all new positions, the `_points` list of all points to the stream.  
 
 ```dart
 class _BoardState extends State<Board> {
-  // liste des points accumulés
+  // all cursor positions
   final List<Offset> _points = [];
   
-  // émetteur de listes de points 
   final StreamController<List<Offset>> _streamer =
       StreamController<List<Offset>>();
 
@@ -307,8 +304,7 @@ class _BoardState extends State<Board> {
 
   @override
   Widget build(BuildContext context) => MouseRegion(
-        // ajoute chaque nouvelle position à la liste, 
-        // et émet le nouveau contenu de la liste
+        // add new position to _points and add the new list to the stream
         onHover: (details) => _streamer.add(_points..add(details.localPosition)),
         child: StreamBuilder<List<Offset>>(
           initialData: _points,
@@ -320,7 +316,8 @@ class _BoardState extends State<Board> {
 }
 ```
 
-Ne reste plus qu'à dessiner l'ensemble des points listés.
+Then we can draw all the points.
+
 
 ```dart
 class Painter extends CustomPainter {
@@ -332,7 +329,7 @@ class Painter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    // dessine un cercle pour à chaque position de la liste
+    // draws a circle for each saved positions
     for (final point in points) canvas.drawCircle(point, 10, fill);
   }
 
@@ -344,13 +341,11 @@ class Painter extends CustomPainter {
 
 ____
 
-## Etape 3 : le chemin
+## Etape 3 : The path
 
 ![step3]({{"/img/algrafx/steps/step3.gif" | prepend:site.baseurl }})
 
-Une fois que l'on a une série de points, on peut les relier. Pour cela on peut :
-- tracer des lignes avec [`canvas.drawLine()`](https://api.flutter.dev/flutter/dart-ui/Canvas/drawLine.html)
-- tracer des lignes avec [`canvas.drawPoints(PointMode.polygon, points, stroke)`](https://api.flutter.dev/flutter/dart-ui/Canvas/drawPoints.html), mais cette méthode ne marche pas encore en version web.
+Now that we have a list of points, we can connect them.
 
 ```dart
 class Painter extends CustomPainter {
@@ -369,7 +364,7 @@ class Painter extends CustomPainter {
     if (points.isEmpty) return;
     for (final point in points) canvas.drawCircle(point, 2, fill);
 
-    // on relie chaque point au point suivant
+    // draw a line between each points
     for (int i = 0; i < points.length - 1; i++) {
       canvas.drawLine(points[i], points[i + 1], stroke);
     }
@@ -383,11 +378,12 @@ class Painter extends CustomPainter {
 
 ____
 
-## Etape 4 : Lignes ephemères
+## Etape 4 : Ephemeral lines
 
 ![step4]({{"/img/algrafx/steps/step4.gif" | prepend:site.baseurl }})
 
-Pour ne pas surcharger le canvas, nous allons limiter le nombre de points visibles.
+
+In order not to overload the canvas, we will limit the number of visible points.
 
 ```dart
 const maxPoints = 29;
@@ -404,7 +400,7 @@ class _BoardState extends State<Board> {
       child: StreamBuilder<List<Offset>>(
         initialData: Board._points,
         stream: point$.map(
-          // garde les 29 derniers points 
+          // keeps only the 29 last points 
           (points) => points.skip(max(0, points.length - maxPoints)).toList(),
         ),
         builder: (context, snapshot) =>
@@ -419,19 +415,19 @@ class _BoardState extends State<Board> {
 
 ____
 
-## Etape 5 : moving point
+## Etape 5 : Moving points
 
 ![step5]({{"/img/algrafx/steps/step5.gif" | prepend:site.baseurl }})
 
-Pour animer le tracé, nous allons appliquer une *pseudo-force* à ses points.
+To animate lines, we'll apply a force to points.
 
-Pour cela, plutôt que de manipuler des `Offset`, on peut créer une entité `Point`, sur laquelle nous appliquerons un déplacement proportionel à la force appliquée et subissant une légère accélération.
+For that, rather than handling `Offset`, we can create a` Point` entity, on which we will apply a displacement proportional to the applied force and undergoing a slight acceleration.
 
 ```dart
-/// pseudo gravité d'1px vertical
+/// pseudo gravity (1px vertical)
 const force = Offset(0, 1);
 
-// facteur d'accéleration de la gravité
+// gravity acceleration factor
 const acceleration = 1.1;
 
 class Point {
@@ -439,15 +435,14 @@ class Point {
   // position
   final Offset offset;
 
-  // gravité
+  // gravity
   final Offset force;
 
-  // visible ou hors champs
   final bool active;
 
   const Point(this.offset, this.force, [this.active = true]);
 
-  // application de la force à la position et de l'accélération à la force
+  //apply the force to offset, and acceleration to force
   Point update() => active
       ? Point(offset + force, force * acceleration, offset.dy < size.height)
       : Point(Offset.zero, Offset.zero, false);
@@ -465,12 +460,11 @@ class Point {
   int get hashCode => offset.hashCode ^ force.hashCode ^ active.hashCode;
 }
 ```
+We use a looped animationController to refresh the points positions within a regular time interval ( [`AnimationController.unbounded`](https://api.flutter.dev/flutter/animation/AnimationController-class.html) ).
 
-Pour "rafraîchir" le dessin nous utilisons un controller d'animation "infinie" ( [`AnimationController.unbounded`](https://api.flutter.dev/flutter/animation/AnimationController-class.html) ). Cela nous permet de mettre à jour la position et la force de chaque point à intervalle régulier.
+To use an animationController, awe must add a mixin to our widget state : [`SingleTickerProviderStateMixin`](https://api.flutter.dev/flutter/widgets/SingleTickerProviderStateMixin-mixin.html). 
 
-Pour pouvoir utiliser une animation, on ajoute le mixin [`SingleTickerProviderStateMixin`](https://api.flutter.dev/flutter/widgets/SingleTickerProviderStateMixin-mixin.html) à notre `_BoardState`. 
-
-A chaque *tick*, on filtre les points visibles, et on leur applique la *force* de manière à calculer leur nouvelle position.
+For each *tick*, we filter the visibles points, and apply their gravity to obtain their new positions.
 
 ```dart
 class _BoardState extends State<Board> with SingleTickerProviderStateMixin {
@@ -483,7 +477,7 @@ class _BoardState extends State<Board> with SingleTickerProviderStateMixin {
 
   @override
   void initState() {
-    // démarre une animation en boucle et ajoute un écouteur `_updatePoints`
+    // start a looped animation and add a listener : `_updatePoints`
     AnimationController.unbounded(vsync: this, duration: Duration(seconds: 1))
       ..repeat()
       ..addListener(_updatePoints);
@@ -505,12 +499,11 @@ class _BoardState extends State<Board> with SingleTickerProviderStateMixin {
         ),
       );
   
-  // met à jour les points et les ajoute au flux 
+  // update the points and add them to the stream 
   void _updatePoints() {
     _points = _points
-        // filtre les points actifs, 
         .where((element) => element.active)
-        // met à jour leur position et leur force 
+        // apply position and force 
         .map((element) => element.update())
         .toList();
     _streamer.add(_points);
@@ -521,24 +514,24 @@ class _BoardState extends State<Board> with SingleTickerProviderStateMixin {
 
 ____
 
-## Etape 6 : Points => Segment => Polygone
+## Etape 6 : Points => Segment => Polygon
 
-Maintenant que nous avons notre liste de points, nous allons la transformer. 
+Now that we have our list of points, we can transform it.
 
-### ✴ ➡ |
+### Points to vertical segments
 
 ![points to vertical segment]({{"/img/algrafx/schm_canvas2.png" | prepend:site.baseurl }})
 
-Pour commencer nous allons tracer une ligne verticale au niveau de chaque point.
+First we draw a vertical line around each point. 
+
 
 ```dart
 @override
 void paint(Canvas canvas, Size size) {
-  print('Painter.paint...');
   for (final point in points) {
     canvas.drawCircle(point.offset, 2, fill);
     
-    // dessine un segment vertical au niveau de chaque point
+    // draw a vertical segment 
     canvas.drawLine(
       point.offset - Offset(0, -50),
       point.offset - Offset(0, 50),
@@ -555,8 +548,9 @@ void paint(Canvas canvas, Size size) {
 
 ![step6b]({{"/img/algrafx/steps/step6b.gif" | prepend:site.baseurl }})
 
-Nous dessinons à présent un parallèlogramme reliant deux points successifs.
-Nous allons pour cela créer une classe `Segment`, qui contiendra deux `Point`s. Les segments posséderont également une couleur de remplissage et de contour. Les parralèlogrammes seront obtenus par transformation de ce segment.
+Now let's draw a parallelogram connecting two successive points.
+
+We are going to create a class `Segment`, which will contain two` Points`s. The segments will also have a fill and outline color. The parallelograms will be obtained by transformation of this segment.
 
 ```dart
 class Segment {
@@ -576,7 +570,6 @@ class Segment {
 
   const Segment(this.point1, this.point2, {this.strokeColor, this.fillColor});
 
-  // renvoie un segment avec les points mis à jour
   Segment update() => Segment(
         point1.update(),
         point2.update(),
@@ -586,7 +579,7 @@ class Segment {
 }
 ```
 
-Nous passons donc d'une liste de `Point`s à une liste de `Segment`s.
+So we go from a list of `Point`s to a list of` Segment`s.
 
 ```dart
   @override
@@ -600,7 +593,7 @@ Nous passons donc d'une liste de `Point`s à une liste de `Segment`s.
 
   @override
   Widget build(BuildContext context) => MouseRegion(
-        // ajoute un segment à chaque nouvelle position du curseur
+        // adds a segment to each new cursor position
         onHover: (details) => _addSegment(details.position),
         child: StreamBuilder<List<Segment>>(
           initialData: <Segment>[],
@@ -610,7 +603,7 @@ Nous passons donc d'une liste de `Point`s à une liste de `Segment`s.
         ),
       );
 
-  /// ajoute un segment entre le dernier point du segment précédent et la nouvelle position
+  /// adds a segment between the last point of the previous segment and the new position
   void _addSegment(Offset offset) {
     _segments
       ..add(
@@ -623,7 +616,7 @@ Nous passons donc d'une liste de `Point`s à une liste de `Segment`s.
       );
   }
   
-  // filtre le segments inactives et met à jour les segments et les ajoute au flux
+  // filters inactive segments, updates segments and adds them to the stream
   void _updateSegments() {
     _segments = _segments
         .where((element) => element.active)
@@ -633,7 +626,7 @@ Nous passons donc d'une liste de `Point`s à une liste de `Segment`s.
   }
 ```
 
-Ensuite dans le `Painter`, nous déterminons les arrêtes du parallélogramme à partir des points du segments et nous les relions.
+Then in the Painter, we determine the edges of the parallelogram from the points of the segment and we connect them.
 
 ![points to vertical segment]({{"/img/algrafx/schm_canvas3.png" | prepend:site.baseurl }})
 
@@ -695,9 +688,9 @@ class Painter extends CustomPainter {
 
 ``` 
 
-### Une meilleure API
+### A better API
 
-Le résultat est bien celui recherché, mais simplifions un peu l'API.
+The result is the one we are looking for, but let's simplify the API a bit.
 
 **Point.up(double) & Point.down(double)**
 
@@ -752,7 +745,7 @@ class Segment {
 
   bool get active => point1.active && point2.active;
 
-  /// renvoie les coins du parallèlogramme correspondant au segment
+  /// returns the corners of the parallelogram corresponding to the segment
   List<Offset> get corners => [
         point1.up(50),
         point2.up(50),
@@ -772,7 +765,8 @@ class Segment {
   }
 }
 ``` 
-Pour finir, redessinons les paralèlogrammes à l'aide de [Path](https://api.flutter.dev/flutter/dart-ui/Path-class.html).
+
+Finally, let's redraw the parallelograms using [Path](https://api.flutter.dev/flutter/dart-ui/Path-class.html).
 
 ```dart
 class Painter extends CustomPainter {
@@ -794,7 +788,7 @@ class Painter extends CustomPainter {
 
     for (final segment in segments) {
     
-      // instanciation d'un path entre les quatres corners
+      // instanciate a path between edges
       final path = Path()
         ..moveTo(segment.corners[0].dx, segment.corners[0].dy)
         ..lineTo(segment.corners[1].dx, segment.corners[1].dy)
@@ -802,10 +796,10 @@ class Painter extends CustomPainter {
         ..lineTo(segment.corners[3].dx, segment.corners[3].dy)
         ..close();
       
-      // dessin de la forme
+      // fill
       canvas.drawPath(path, Paint()..color = segment.fillColor);
 
-      // dessin du contour
+      // stroke
       canvas.drawPath(
         path,
         Paint()
@@ -829,32 +823,30 @@ class Painter extends CustomPainter {
 👀 [codepen.io/rx-labz/pen/abdKKNg](https://codepen.io/rx-labz/pen/abdKKNg)
 ____
 
-## Etape 7 : Couleurs
+## Etape 7 : Colors
 
 ![step7b]({{"/img/algrafx/steps/step7b.gif" | prepend:site.baseurl }})
 
-Pour animer la couleur, nous allons progressivement assombrir les couleurs appliquées à chaque segment. Pour cela nous pouvons convertir la couleur en `HSLColor` et baisser la luminosité. L'utilisation d'une extension permet de simplifier l'écriture de cette opération. 
+To animate the color, we will gradually darken the colors applied to each segment. For this we can convert the color to `HSLColor` and lower the brightness. The use of an extension simplifies the writing of this operation.
 
 ```dart
 extension on Color {
-  /// renvoie la HSLColor correspondante
+  /// returns the corresponding HSLColor
   HSLColor get hsl => HSLColor.fromColor(this);
   
-  /// renvoie la luminosité de la couleur
   double get lightness => hsl.lightness;
 
-  /// renvoie la couleur après modification de la luminosité
   Color withLightness(double value) =>
-      hsl.withLightness(min(1, hsl.lightness * .98)).toColor();
+      hsl.withLightness(value).toColor();
 }
 
 class Segment {
   //..
 
   Segment update() {
-    // assombrit la couleur de remplissage
+    // darkens the fill color
     final newFillColor = fillColor.lightness > 0
-        ? fillColor.withLightness(min(1, fillColor.lightness * .98))
+        ? fillColor.withLightness( fillColor.lightness * .98 )
         : fillColor;
 
     return Segment(
@@ -877,24 +869,22 @@ class Segment {
 
 ____
 
-## Etape 8 : Vitesse et épaisseur
+## Etape 8 : Speed and width
 
-L'étape suivante va consister à faire varier l'épaisseur du bandeau en fonction de la vitesse de déplacement du curseur. Plus le curseur se déplace rapidement plus la ligne est fine.
+The next step will be to vary the thickness of the strip according to the speed of movement of the cursor. The faster the cursor moves, the finer the line.
 
-### a. Épaisseur de segment
+### a. Segment width
 
 <video src="https://github.com/rxlabz/rxlabz.github.io/blob/master/img/algrafx/clips/step8a.sd.mp4?raw=true" controls ></video>
 
-Pour cela nous allons ajouter une épaisseur `width` aux segments, et la faire varier en fonction de la distance entre les 2 points. Le parallèlogramme dessiné sera défini par l'épaisseur.
+For this we will add a thickness `width` to the segments, and vary it according to the distance between the 2 points. The parallelogram will have the segment thickness.
 
 ```dart
 
-/// largeur maximale
 const segmentMaxWidth = 100.0;
 
 const segmentMinWidth = 2.0;
 
-/// longueur de référence
 const segmentMaxLength = 200.0;
 
 class Segment {
@@ -922,7 +912,7 @@ class Segment {
     ];
   }
 
-  /// renvoie l'épaisseur du segment en fonction de la distance entre ses points
+  /// computes the thickness of the segment as a function of the distance between its points
   double get segmentWidth => max(
         segmentMinWidth,
         segmentMaxWidth -
@@ -949,9 +939,9 @@ class Segment {
 ``` 
 👀 [codepen.io/rx-labz/pen/zYraLoK](https://codepen.io/rx-labz/pen/zYraLoK)
 
-### b. Chainage des segments
+### b. Chaining segments
 
-Pour "harmoniser" la ligne, nous allons transformer les parallélogrammes en trapèzes. Chaque trapèze aura une épaisseur "en entrée" et une épaisseur en sortie.
+To "harmonize" the line, we are going to transform the parallelograms into trapezoids. Each trapezoid will have an "inlet" thickness and an outlet thickness.
 
 ![points to vertical segment]({{"/img/algrafx/schm_canvas4.png" | prepend:site.baseurl }})
 
@@ -974,15 +964,15 @@ class Segment {
   const Segment(
     this.point1,
     this.point2, {
-    @required this.previous, // segment précédent
+    @required this.previous, // previous segment
     this.strokeColor,
     this.fillColor,
   });
 
   bool get active => point1.active && point2.active;
 
-  /// renvoie les coins du trapèze basés sur l'épaisseur du segment précédent 
-  /// et celle du segment lui même
+  /// returns the corners of the trapezoid based on the thickness 
+  /// of the previous segment and that of the segment itself
   List<Offset> get corners {
     final previousWidth =
         previous != null ? previous.segmentWidth : segmentWidth;
@@ -1020,8 +1010,6 @@ class Segment {
 ```
 👀 https://codepen.io/rx-labz/pen/mdVKjOK
 
-Chaque segment contient le segment précedent, et peut donc obtenir l'épaisseur de l'extremité connexe.
-
 <video src="https://github.com/rxlabz/rxlabz.github.io/blob/master/img/algrafx/clips/step8b.sd.mp4?raw=true" controls ></video> 
 
 ____
@@ -1030,17 +1018,16 @@ ____
 
 <video src="https://github.com/rxlabz/rxlabz.github.io/blob/master/img/algrafx/clips/step9.sd.mp4?raw=true" controls ></video>
 
-Pour le moment tous les polygones disparaissent, nous allons ensuite maintenant les "fixer".
+For the moment all the polygons disappear, we are now going to "freeze" them.
 
-La fixation pourrait être déclenchée manuellement ( au clic ou via la barre d'espace ), comme c'est le cas avec algrafx, mais dans cet exemple nous allons les figer automatiquement, à intervalle de temps régulier.
+It could be done manually ( by clic or space ), but it this example we'll freeze them automatically, within a regular time interval.
 
 ```dart
 
 class Point {
   // ...
 
-  /// chaque point peut être figé, en annulant la force qui lui est appliquée
-  /// et en le désactivant
+  /// point is freezed by cancelling it's force
   Point freeze() => Point(offset, Offset.zero, false);
 
   // ...
@@ -1049,7 +1036,7 @@ class Point {
 class Segment {
   // ...
   
-  /// les segments peuvent également être figés
+  /// segments are freezable
   Segment freeze() => Segment(
     point1.freeze(),
     point2.freeze(),
@@ -1070,7 +1057,7 @@ class _BoardState extends State<Board> with SingleTickerProviderStateMixin {
   void initState() {
     //...
 
-    // fige les segments visible à intervalle régulier
+    // freeze the segments within a time interval
     Timer.periodic(Duration(seconds: 2), (timer) {
     final freezables = _segments
       .where((segment) => segment.active)
@@ -1087,7 +1074,7 @@ class _BoardState extends State<Board> with SingleTickerProviderStateMixin {
 }
 ```
 
-Pour ne pas redessiner plus que nécessaire les segments figés, nous allons créer un deuxième CustomPaint, sorte de calque, qui sera utilisé pour dessiner les polygones figés, et qui ne sera rafraîchit que lorsque la liste de segments change.
+To avoid redrawing the frozen segments more than necessary, we will create a second CustomPaint, a kind of layer, which will be used to draw the frozen polygons, and which will only be refreshed when the list of segments changes.
 
 ```dart
 class _BoardState extends State<Board> with SingleTickerProviderStateMixin {
@@ -1119,9 +1106,9 @@ class _BoardState extends State<Board> with SingleTickerProviderStateMixin {
 }
 ```
 
-Nous utilisons maintenant 2 `CustomPainter`s :
+We now use 2 `CustomPainter`s :
 
-- `ForegroundPainter` dessine les segments "dynamiques"
+- `ForegroundPainter` draws the moving segments
 
 ```dart
 class ForegroundPainter extends CustomPainter {
@@ -1148,7 +1135,7 @@ class ForegroundPainter extends CustomPainter {
 
 ```
 
-- `BackgroundPainter` dessine les segments figés
+- `BackgroundPainter` draws the freezed segments
 
 ```dart
 class BackgroundPainter extends CustomPainter {
@@ -1170,7 +1157,7 @@ class BackgroundPainter extends CustomPainter {
 
 ```
 
-les deux painters utilise une méthode `drawSegment`
+Both painters use `drawSegment()`.
 
 ```dart
 void drawSegment(Canvas canvas, Segment segment) {
@@ -1194,13 +1181,11 @@ void drawSegment(Canvas canvas, Segment segment) {
 
 ____
 
-## Etape 10 : autografx
+## Etape 10 : Autografx
 
 <video src="https://github.com/rxlabz/rxlabz.github.io/blob/master/img/algrafx/clips/step10.sd.mp4?raw=true" controls ></video>
 
-Pour finir, nous pouvons remplacer le tracking du mouvement du curseur, et générer des positions aléatoires. 
-
-Le nombre de lignes figées est ici limité à 5.
+Finally, we can replace the cursor movement tracking by generating random positions.
 
 ```dart
 
@@ -1242,7 +1227,7 @@ class _BoardState extends State<Board> with SingleTickerProviderStateMixin {
     _updateSegments();
   }
   
-  // deplacement aléatoire 
+  // random moves 
   void _moveCursor() {
     double nextX = (random.nextDouble() * 300) - 150;
     if ((cursor.dx + nextX > size.width) || (cursor.dx + nextX < 0))
@@ -1262,19 +1247,19 @@ class _BoardState extends State<Board> with SingleTickerProviderStateMixin {
 ```
 👀 [codepen.io/rx-labz/pen/GRoGXQJ](https://codepen.io/rx-labz/pen/GRoGXQJ)
 
-Voilà pour le principe, mais il manque encore quelques finitions :
-- ajouter un peu de volume et de lumière à l'aide de **dégradés**
-- ajouter la pointe des flèches
-- jouer avec le **flou et l'opacité**
-- entrelacer les fléches via un pseudo "**z-ordering**"
+So much for the principle, but there are still a few finishes missing:
+- add volume and light using ** gradients **
+- add the arrowhead
+- play with ** blur and opacity **
+- interleave the arrows via a pseudo "** z-ordering **"
 
 ____
 
-## Etape 11 : Dégradés
+## Etape 11 : Gradients
 
 <video src="https://github.com/rxlabz/rxlabz.github.io/blob/master/img/algrafx/clips/algrafx_gradient.mp4?raw=true" controls ></video>
 
-Pour ajouter un dégradé aux trapèzes, déclinons la couleur du segment : une version plus claire, et une plus sombre.
+To add a gradient to the trapezoids, let's decline the color of the segment: a lighter version, and a darker one.
 
 ```dart
 extension on Color {
@@ -1296,9 +1281,9 @@ extension on Color {
 }
 
 ```
+Next, let's add a gradient between the light color, the real color and the dark color.
 
-Ensuite, ajoutons un dégradé entre la couleur claire, la couleur réelle et la couleur sombre.
-Pour créer un dégradé dans le canvas, on ajouter un [`shader`](https://api.flutter.dev/flutter/dart-ui/Paint/shader.html) de type [`Gradient`](https://api.flutter.dev/flutter/dart-ui/Gradient-class.html).
+To create a gradient in the canvas, add a [`shader`] (https://api.flutter.dev/flutter/dart-ui/Paint/shader.html) of type [` Gradient`] (https: / /api.flutter.dev/flutter/dart-ui/Gradient-class.html).
 
 ```dart
 
@@ -1312,8 +1297,6 @@ void drawSegment(Canvas canvas, Segment segment) {
   canvas.drawPath(
     path,
     Paint()
-      // définition d'un dégradé sur une diagonale du polygone,
-      // entre un intervalle de couleur autoir de la couleur du segment
       ..shader = ui.Gradient.linear(
         segment.corners[0],
         segment.corners[2],
@@ -1331,11 +1314,11 @@ void drawSegment(Canvas canvas, Segment segment) {
 
 ____
 
-## Etape 12 : Pointes
+## Etape 12 : Arrowheads
 
 <video src="https://github.com/rxlabz/rxlabz.github.io/blob/master/img/algrafx/clips/algrafx_step12.mp4?raw=true" controls ></video>
 
-Il est temps de dessiner la pointe de nos fléches. Le moyen de le plus simple sera de transformer le premier segment non pas en parallèlogramme, mais en triangle.
+It's time to draw the tip of our arrows. The simplest way will be to transform the last segment not into a parallelogram, but into a triangle.
 
 ![step0b]({{"/img/algrafx/schm_canvas5.png" | prepend:site.baseurl }})
 
@@ -1384,9 +1367,9 @@ ____
 
 ## Etape 13 : Flou et opacité
 
-Pour adoucir les tracés, nous pouvons superposer une version floutée des polygones. Cela produit un effet "lueur“ qui associée à une variation de l'opacité peut produire un effet graphique intéressant. 
+To soften the paths, we can overlay a blurred version of the polygons. This produces a "glow" effect which, combined with a variation in opacity, can produce an interesting graphic effect.
 
-Pour cela nous allons utiliser un [`Paint.maskFilter`](https://api.flutter.dev/flutter/dart-ui/Paint/maskFilter.html). Les polygones seront progressivement floutés.
+For this we will use a [`Paint.maskFilter`] (https://api.flutter.dev/flutter/dart-ui/Paint/maskFilter.html). The polygons will be gradually blurred.
 
 ```dart
 void drawSegment(
@@ -1416,7 +1399,7 @@ void drawSegment(
         ..lineTo(segment.corners[3].dx, segment.corners[3].dy)
         ..close());
 
-  // dessin net
+  // normal shape
   canvas.drawPath(
     path,
     Paint()
@@ -1434,7 +1417,7 @@ void drawSegment(
       ),
   );
 
-  // dessin flouté
+  // blurred shape
   canvas.drawPath(
     path,
     Paint()
@@ -1448,7 +1431,7 @@ void drawSegment(
         ],
         [.0, .2, .8],
       )
-      // on applique le flou
+      // apply blur
       ..maskFilter = MaskFilter.blur(
           BlurStyle.normal, (total - count) / total * blurFactor),
   );
@@ -1456,7 +1439,7 @@ void drawSegment(
 
 ```
 
-pour l'opacité, nous modifions la couleur de remplissage au moment de la mise à jour des segments.
+For the opacity, we change the fill color when updating the segments.
 
 ```dart
 class Segment{
@@ -1465,7 +1448,7 @@ class Segment{
   Segment update() {
     final newFillColor = fillColor
         .withLightness(max(0.05, fillColor.lightness * lightnessFactor))
-        // applique un facteur de transparence
+        // apply a transparency factor
         .withOpacity(fillColor.opacity * opacityFactor);
     return Segment(
       point1.update(),
@@ -1486,8 +1469,9 @@ ____
 
 ## Etape 14 : Pseudo Z order
 
-Pour cette dernière étape, l'objectif est d'entremêler les polygones successifs.
-Pour cela nous allons ré-ordonner les segments figés en fonctions de leur opacité. 
+For this last step, the goal is to intermingle the successive polygons.
+
+For this we will reorder the frozen segments according to their opacity. 
 
 ```dart
 class BackgroundPainter extends CustomPainter {
@@ -1499,14 +1483,14 @@ class BackgroundPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final allSegments = <Segment>[];
     
-    // liste l'ensemble des segments 
+    // all segments 
     for (final segments in lines) {
       for (final segment in segments) {
         allSegments.add(segment == segments.last ? segment.lastified : segment);
       }
     }
 
-    // trie les segments en fonctions de leur opacité
+    // opacity sort
     allSegments.sort((s1, s2) {
       if (s1.opacity > s2.opacity) return 1;
       if (s1.opacity < s2.opacity) return -1;
@@ -1544,6 +1528,6 @@ class BackgroundPainter extends CustomPainter {
 
 ____
 
-Et voilà ! Nous sommes arrivés à un rendu relativement proche des flèches initiales, et nous avons fait ample connaissances avec `CustomPaint`.
+And There you go ! We have relatively close arrows and have learned a lot about `CustomPaint`.
 
-A partir de là, à vous de jouer !
+From there, it's up to you  !
