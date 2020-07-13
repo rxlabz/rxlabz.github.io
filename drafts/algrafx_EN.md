@@ -1,12 +1,3 @@
----
-layout: post
-title:  "Du papier au canvas, graphisme génératif avec Dart & Flutter"
-date:   2020-07-05 00:00:00 +0100
-categories: dart flutter design
-excerpt_separator: <!--more-->
----
-
-![origin]({{"/img/algrafx/paper_to_canvas.png" | prepend:site.baseurl }})
 
 A retrospective of a graphic experiment of almost 20 years in 15 stages.
 
@@ -22,17 +13,17 @@ Someday I started to draw arrows...
 
 a lot of arrows 😀 ... Volume, motion,...
 
-![old_arrows]({{"/img/algrafx/old_arrows.png" | prepend:site.baseurl }})
+![old_arrows](http://rxlabz.github.io/img/algrafx/old_arrows.png)
 
 # 2004
 
 I colorized them with Photoshop and Illustrator.
 
-![arf]({{"/img/algrafx/prise_de_tete.jpg" | prepend:site.baseurl }})
+![arf](http://rxlabz.github.io/img/algrafx/prise_de_tete.jpg)
 
-![La Fabrick]({{"/img/algrafx/fbck.png" | prepend:site.baseurl }}) ![breakz]({{"/img/algrafx/plo1.png" | prepend:site.baseurl }})
+![La Fabrick](http://rxlabz.github.io/img/algrafx/fbck.png) ![breakz](http://rxlabz.github.io/img/algrafx/plo1.png)
 
-![trajectoires]({{"/img/algrafx/trajectoires.jpg" | prepend:site.baseurl }})
+![trajectoires](http://rxlabz.github.io/img/algrafx/trajectoires.jpg)
 
 # 2008
 
@@ -40,7 +31,7 @@ I mostly code Actionscript, Flash then Flex applications. I discover Generative 
 
 If Flash was a perfectly fitted tool to generate graphics, I wasn't skilled enough to code my arrows. I tried a bit with shape tweens... Without success.  
 
-![Flash interpolation]({{"/img/algrafx/interpol.gif" | prepend:site.baseurl }})
+![Flash interpolation](http://rxlabz.github.io/img/algrafx/interpol.gif)
 
 # 2010
 
@@ -66,9 +57,10 @@ window
  
   I published a first version of [Algraphr](https://github.com/rxlabz/algraphr), coded in Vanilla Dart 1.x .
  
-[![algraphr]({{"/img/algrafx/algraphr.png" | prepend:site.baseurl }})](http://rxlabz.github.io/algraphr)
+[![algraphr](http://rxlabz.github.io/img/algrafx/algraphr.png   )](http://rxlabz.github.io/algraphr)
 
-<video src="https://github.com/rxlabz/rxlabz.github.io/blob/master/img/algrafx/clips/algraphr.mp4?raw=true" controls ></video>
+
+###### {% youtube 8ey0Q-6nFIo %}
 
 4 years later, I'm more than happy of this choice. Dart 1 was already a very smooth web tool. I was surprised how fast I achieved : 
 - dynamic svg drawing, 
@@ -89,15 +81,21 @@ The Algraphr experiment stopped there for a long time...
 
 # 2017
 
-I disciver Flutter 💙. So many things to explore... In few weeks, I rebuild one of my Flex mobile app, and from then : 🤩 ! 
+I discover Flutter 💙. So many things to explore... In few weeks, I rebuild one of my Flex mobile app, and from then : 🤩 ! 
 
 # 2019
 
-Adobe leaves AIR, its integrated Runtinme, and announce the final death of Flash browser plugin.
+Adobe leaves AIR, its integrated Runtime, and announce the final death of Flash browser plugin.
 
-[First generative creations from the Flutter community appears](https://twitter.com/BlueAquilae/status/1168095910754160640), then [Flutter web](https://flutter.dev/web) become a thing, and finally
+First generative creations from the Flutter community appears :
 
-[![Flutter Create](https://pbs.twimg.com/media/ELdPozZWsAEdL9H?format=jpg&name=small)](https://twitter.com/FlutterDev/status/1204518995388485633) 
+{% twitter 1168095910754160640 %}
+
+then [Flutter web](https://flutter.dev/web) become a thing,
+ 
+and finally Flutter create...
+
+{% twitter 1204518995388485633 %}
 
 with, I still don't know how/why, my face in it 🤯...
 
@@ -107,8 +105,7 @@ Rewriting it with Flutter was way simpler, and allowed me to easily add more opt
 
 ![algrafx](https://github.com/rxlabz/algrafx/blob/master/images/desktop.png?raw=true)
 
-<video src="https://github.com/rxlabz/rxlabz.github.io/blob/master/img/algrafx/clips/algrafx.mp4?raw=true" controls ></video>
-
+{% youtube Ne8uLjUq1nE %}
 
 # 2020
 
@@ -116,7 +113,7 @@ Flutter appears [in Codepen](https://codepen.io/flutter), and we see a lot of Fl
 
 I started to play with an [algrafx in Codepen](https://codepen.io/rx-labz/pen/WNQoNem)... and some other [abstract animations](https://codepen.io/rx-labz/).
 
-<video src="https://github.com/rxlabz/rxlabz.github.io/blob/master/img/algrafx/clips/rx_codepen.mp4?raw=true" controls ></video>
+{% youtube iIP92WtsoMM %}
 
 So here we are, summer 2020, and it's time to code more arrows !
 
@@ -124,7 +121,7 @@ ____
 
 We are going to learn how to draw and animate arrows in a Flutter canvas. In doing so we will see how to use the canvas, for basic drawing and more advanced techniques such as gradients or blurring.
 
-<video src="https://github.com/rxlabz/rxlabz.github.io/blob/master/img/algrafx/clips/final.mp4?raw=true" controls ></video>
+{% youtube xzb3LZvQshg %}
 
 ## ➡ Pour commencer
 
@@ -197,7 +194,7 @@ class Painter extends CustomPainter {
  ```
  👀 [codepen.io/rx-labz/pen/MWKXONp](https://codepen.io/rx-labz/pen/MWKXONp)
 
-![step0b]({{"/img/algrafx/schm_canvas1.png" | prepend:site.baseurl }})
+![step0b](http://rxlabz.github.io/img/algrafx/schm_canvas1.png)
 
 
 ____
@@ -248,7 +245,7 @@ class Painter extends CustomPainter {
 }
 ```
 
-![step1]({{"/img/algrafx/steps/step1.gif" | prepend:site.baseurl }})
+![step1](http://rxlabz.github.io/img/algrafx/steps/step1.gif)
 
 ### Stream
 
@@ -288,7 +285,7 @@ ____
 
 ## Etape 2 : Tom Thumb
 
-![step2]({{"/img/algrafx/steps/step2.gif" | prepend:site.baseurl }})
+![step2](http://rxlabz.github.io/img/algrafx/steps/step2.gif)
 
 To draw we will draw all cumulated positions. To do that, we'll add, for all new positions, the `_points` list of all points to the stream.  
 
@@ -343,7 +340,7 @@ ____
 
 ## Etape 3 : The path
 
-![step3]({{"/img/algrafx/steps/step3.gif" | prepend:site.baseurl }})
+![step3](http://rxlabz.github.io/img/algrafx/steps/step3.gif)
 
 Now that we have a list of points, we can connect them.
 
@@ -380,7 +377,7 @@ ____
 
 ## Etape 4 : Ephemeral lines
 
-![step4]({{"/img/algrafx/steps/step4.gif" | prepend:site.baseurl }})
+![step4](http://rxlabz.github.io/img/algrafx/steps/step4.gif)
 
 
 In order not to overload the canvas, we will limit the number of visible points.
@@ -417,7 +414,7 @@ ____
 
 ## Etape 5 : Moving points
 
-![step5]({{"/img/algrafx/steps/step5.gif" | prepend:site.baseurl }})
+![step5](http://rxlabz.github.io/img/algrafx/steps/step5.gif)
 
 To animate lines, we'll apply a force to points.
 
@@ -520,7 +517,7 @@ Now that we have our list of points, we can transform it.
 
 ### Points to vertical segments
 
-![points to vertical segment]({{"/img/algrafx/schm_canvas2.png" | prepend:site.baseurl }})
+![points to vertical segment](http://rxlabz.github.io/img/algrafx/schm_canvas2.png)
 
 First we draw a vertical line around each point. 
 
@@ -542,11 +539,11 @@ void paint(Canvas canvas, Size size) {
 ```
 👀 [codepen.io/rx-labz/pen/rNxKKxP](https://codepen.io/rx-labz/pen/rNxKKxP)
 
-![step6]({{"/img/algrafx/steps/step6a.gif" | prepend:site.baseurl }})
+![step6](http://rxlabz.github.io/img/algrafx/steps/step6a.gif)
 
-### ✴ ➡ ▱
+### Points to parallelogram
 
-![step6b]({{"/img/algrafx/steps/step6b.gif" | prepend:site.baseurl }})
+![step6b](http://rxlabz.github.io/img/algrafx/steps/step6b.gif)
 
 Now let's draw a parallelogram connecting two successive points.
 
@@ -628,7 +625,7 @@ So we go from a list of `Point`s to a list of` Segment`s.
 
 Then in the Painter, we determine the edges of the parallelogram from the points of the segment and we connect them.
 
-![points to vertical segment]({{"/img/algrafx/schm_canvas3.png" | prepend:site.baseurl }})
+![points to vertical segment](http://rxlabz.github.io/img/algrafx/schm_canvas3.png)
 
 ```dart
 class Painter extends CustomPainter {
@@ -825,7 +822,7 @@ ____
 
 ## Etape 7 : Colors
 
-![step7b]({{"/img/algrafx/steps/step7b.gif" | prepend:site.baseurl }})
+![step7b](http://rxlabz.github.io/img/algrafx/steps/step7b.gif)
 
 To animate the color, we will gradually darken the colors applied to each segment. For this we can convert the color to `HSLColor` and lower the brightness. The use of an extension simplifies the writing of this operation.
 
@@ -875,7 +872,7 @@ The next step will be to vary the thickness of the strip according to the speed 
 
 ### a. Segment width
 
-<video src="https://github.com/rxlabz/rxlabz.github.io/blob/master/img/algrafx/clips/step8a.sd.mp4?raw=true" controls ></video>
+{% youtube XMJDPknYyxA %}
 
 For this we will add a thickness `width` to the segments, and vary it according to the distance between the 2 points. The parallelogram will have the segment thickness.
 
@@ -943,7 +940,7 @@ class Segment {
 
 To "harmonize" the line, we are going to transform the parallelograms into trapezoids. Each trapezoid will have an "inlet" thickness and an outlet thickness.
 
-![points to vertical segment]({{"/img/algrafx/schm_canvas4.png" | prepend:site.baseurl }})
+![points to vertical segment](http://rxlabz.github.io/img/algrafx/schm_canvas4.png)
 
 ```dart
 class Segment {
@@ -1010,13 +1007,13 @@ class Segment {
 ```
 👀 https://codepen.io/rx-labz/pen/mdVKjOK
 
-<video src="https://github.com/rxlabz/rxlabz.github.io/blob/master/img/algrafx/clips/step8b.sd.mp4?raw=true" controls ></video> 
+{% youtube FjIleq9ZuRo %}
 
 ____
 
 ## Etape 9 : snapshot
 
-<video src="https://github.com/rxlabz/rxlabz.github.io/blob/master/img/algrafx/clips/step9.sd.mp4?raw=true" controls ></video>
+{% youtube M7nGURfbWJo %}
 
 For the moment all the polygons disappear, we are now going to "freeze" them.
 
@@ -1183,7 +1180,7 @@ ____
 
 ## Etape 10 : Autografx
 
-<video src="https://github.com/rxlabz/rxlabz.github.io/blob/master/img/algrafx/clips/step10.sd.mp4?raw=true" controls ></video>
+{% youtube p8EeU3JxoRI %}
 
 Finally, we can replace the cursor movement tracking by generating random positions.
 
@@ -1257,7 +1254,7 @@ ____
 
 ## Etape 11 : Gradients
 
-<video src="https://github.com/rxlabz/rxlabz.github.io/blob/master/img/algrafx/clips/algrafx_gradient.mp4?raw=true" controls ></video>
+{% youtube Q63my9MFPOI %}
 
 To add a gradient to the trapezoids, let's decline the color of the segment: a lighter version, and a darker one.
 
@@ -1316,11 +1313,11 @@ ____
 
 ## Etape 12 : Arrowheads
 
-<video src="https://github.com/rxlabz/rxlabz.github.io/blob/master/img/algrafx/clips/algrafx_step12.mp4?raw=true" controls ></video>
+{% youtube DOWmG5Ete40 %}
 
 It's time to draw the tip of our arrows. The simplest way will be to transform the last segment not into a parallelogram, but into a triangle.
 
-![step0b]({{"/img/algrafx/schm_canvas5.png" | prepend:site.baseurl }})
+![step0b](http://rxlabz.github.io/img/algrafx/schm_canvas5.png)
 
 ```dart
 void drawSegment(Canvas canvas, Segment segment, {bool isLast = false}) {
@@ -1463,7 +1460,7 @@ class Segment{
 
 👀 [codepen.io/rx-labz/pen/MWKXqVr](https://codepen.io/rx-labz/pen/MWKXqVr)
 
-<video src="https://github.com/rxlabz/rxlabz.github.io/blob/master/img/algrafx/clips/algrafx_z-order.mp4?raw=true" controls ></video>
+{% youtube cvp8ty6zzCQ %}
 
 ____
 
@@ -1517,7 +1514,7 @@ class BackgroundPainter extends CustomPainter {
 
 👀 [codepen.io/rx-labz/pen/JjGZaLw](https://codepen.io/rx-labz/pen/JjGZaLw)
 
-<video src="https://github.com/rxlabz/rxlabz.github.io/blob/master/img/algrafx/clips/algrafx_z-order.mp4?raw=true" controls ></video>
+{% youtube 9-K3LKBJUXk %}
 
 <p class="codepen" data-height="420" data-theme-id="light" data-default-tab="result" data-user="rx-labz" data-slug-hash="JjGZaLw" style="height: 301px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Algfx_14">
   <span>See the Pen <a href="https://codepen.io/rx-labz/pen/JjGZaLw">
